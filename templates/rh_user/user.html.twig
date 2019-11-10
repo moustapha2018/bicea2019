@@ -1,0 +1,64 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+
+
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="alert alert-{{ label }} mt-10">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+        <h4><span class="glyphicon glyphicon-plus"></span> Enregistrer un colaborateur</h4>
+        {{ form(form) }}
+
+    </div>
+    <div class="container">
+        <h4><span class="glyphicon glyphicon-th-list"> </span> Listes des colaborateurs</h4>
+        <div class="table-responsive">
+            <table class="table table-hover">
+
+                <thead>
+                <tr>
+                    <th scope="col">Noms</th>
+                    <th scope="col">Prenom</th>
+                    <th scope="col"><span class="glyphicon glyphicon-wrench"> </span> Fonctions</th>
+                    <th scope="col"><span class="glyphicon glyphicon-phone-alt"> </span> Telephones</th>
+                    <th scope="col"><span class="glyphicon glyphicon-calendar"> </span> Dates</th>
+                    <th scope="col"><span class="glyphicon glyphicon-cog"></span> Actions </th>
+                </tr>
+                </thead>
+                {% for user in users %}
+                    <tbody>
+                    <tr>
+                        <td>{{ user.lastName |truncate(25, false, '...')}}</td>
+                        <td>{{ user.firstName |truncate(55, false, '...') }}</td>
+                        <td>{{ user.rhfunction.functionName }}</td>
+                        <td>{{ user.phone |truncate(30, false, '...') }}</td>
+                        <td>{{ user.createdAt| date('d/m/Y' ) }}</td>
+                        <td>
+
+                            <a href="{{ path('edit_user', {'id': user.id}) }}" class="btn btn-warning"><strong class="glyphicon glyphicon-pencil"> Modifier</strong></a>
+                            <a href="{{ path('view_user', {'id': user.id}) }}" class="btn btn-warning"><strong class="glyphicon glyphicon-eyes"> Voir</strong></a>
+                            <a href="{{ path('delete_user', {'id': user.id}) }}" class="btn btn-danger"> <strong class="glyphicon glyphicon-remove"> Supprimer</strong></a>
+
+
+                        </td>
+
+
+                    </tr>
+
+                    </tbody>
+                {% endfor %}
+            </table>
+
+        </div>
+
+    </div>
+
+{% endblock %}

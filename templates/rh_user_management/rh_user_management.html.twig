@@ -1,0 +1,63 @@
+{% extends 'template.html.twig' %}
+
+{% block body %}
+<div class="container">
+    <h2 class="page-header">Listes des <span class="btn btn-primary">{{  RhUsers| length  }}</span> Organismes</h2>
+    <div class="table-responsive">
+        <table class="table table-hover" border="1">
+
+            <thead>
+            <tr>
+                <th colspan="2" scope="col" class="text-center" bgcolor="#6495ed">Infos utilisateurs</th>
+                <th colspan="3" scope="col" class="text-center" bgcolor="#6495ed">Gestions de droits</th>
+            </tr>
+            <tr>
+
+                <th scope="col">Id Utilisateur</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Statut Compte</th>
+                <th scope="col">Management</th>
+                <th scope="col">Comptabilités</th>
+
+
+            </tr>
+            </thead>
+            {% for RhUser in RhUsers %}
+                    <tbody>
+                    <tr>
+                        <td>{{ RhUser.loginUser |truncate(25, false, '...')}}</td>
+                        <td>{{ RhUser.firstName |truncate(55, false, '...') }}</td>
+
+                        <td>
+                            {% if  RhUser.isActive == 1 %}
+                                <a href="{{ path('activation', {'id': RhUser.id}) }}" class="btn btn-warning"><strong class="glyphicon glyphicon-lock"> Désactiver</strong></a>
+                            {% else  %}
+                                <a href="{{ path('activation', {'id': RhUser.id}) }}" class="btn btn-success"> <strong class="glyphicon glyphicon-success"> Activer</strong></a>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if RhUser.isProjectManager == 1 %}
+                                <a href="{{ path('management', {'id': RhUser.id}) }}" class="btn btn-warning"><strong class="glyphicon glyphicon-lock"> Désactiver</strong></a>
+                            {% else  %}
+                                <a href="{{ path('management', {'id': RhUser.id}) }}" class="btn btn-success"> <strong class="glyphicon glyphicon-success"> Activer</strong></a>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if RhUser.isAccountant == 1 %}
+                                <a href="{{ path('accounting', {'id': RhUser.id}) }}" class="btn btn-warning"><strong class="glyphicon glyphicon-lock"> Désactiver</strong></a>
+                            {% else  %}
+                                <a href="{{ path('accounting', {'id': RhUser.id}) }}" class="btn btn-success"> <strong class="glyphicon glyphicon-success"> Activer</strong></a>
+                            {% endif %}
+                        </td>
+
+
+
+                    </tr>
+                    </tbody>
+               {#       {% endif %}     #}
+            {% endfor %}
+        </table>
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'template.html.twig' %}
+{% block title %}Enregistrement d'un administrateur{% endblock %}
+{% block body %}
+
+
+    <div class="container" xmlns="http://www.w3.org/1999/html">
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="alert alert-{{ label }} mt-10">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+        <h4><span class="glyphicon glyphicon-plus"></span> Enregistrer un administrateur</h4>
+        {{ form(form) }}
+
+    </div>
+
+    <div class="container">
+        <h4><span class="glyphicon glyphicon-th-list"> </span> Listes des administrateurs</h4>
+        <div class="table-responsive">
+            <table class="table table-hover">
+
+                <thead>
+                <tr>
+                    <th scope="col">Prenoms</th>
+                    <th scope="col">Nom organisme</th>
+                    <th scope="col"><span class="glyphicon glyphicon-comment"> </span> Identifiant Organisme</th>
+                    <th scope="col"><span class="glyphicon glyphicon-calendar"> </span> Dates</th>
+                    <th scope="col"><span class="glyphicon glyphicon-cog"></span> Actions </th>
+                </tr>
+                </thead>
+                {% for admin in admins %}
+                    {% if admin.activitySector != constant('App\\Entity\\activitySector\\bicea\\Admin::bicea') %}
+                        <tbody>
+                        <tr>
+                            <td>{{ admin.firstName |truncate(25, false, '...')}}</td>
+                            <td>{{ admin.companyName |truncate(55, false, '...') }}</td>
+                            <td>{{ admin.loginCompany |truncate(30, false, '...') }}</td>
+                            <td>{{ admin.createdAt| date('d/m/Y' ) }}</td>
+                            <td>
+                                <a href="{{ path('edit_admin', {'id': admin.id}) }}" class="btn btn-warning"><strong class="glyphicon glyphicon-pencil"> Modifier</strong></a>
+                                <a href="{{ path('delete_admin', {'id': admin.id}) }}" class="btn btn-danger"> <strong class="glyphicon glyphicon-remove"> Supprimer</strong></a>
+                            </td>
+
+                        </tr>
+
+                        </tbody>
+                    {% endif %}
+                {% endfor %}
+            </table>
+
+        </div>
+
+    </div>
+
+
+{% endblock %}

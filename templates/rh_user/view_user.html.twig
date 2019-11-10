@@ -1,0 +1,19 @@
+{% extends 'template.html.twig' %}
+{% block title %}Informations colaborateur{% endblock %}
+{% block body %}
+
+
+    <div class="container" >
+            <p class="text-center">{{ user.lastName }}</p>
+            <p class="text-center">{{ user.firstName }}</p>
+            <p class="text-center">{{ user.email }}</p>
+            <p class="text-center">{{ user.password }}</p>
+            <p class="text-center">{{ user.phone }}</p>
+            <p class="text-center">{{ user.fonction.nom }}</p>
+            <p class="text-center">{{ user.loginUser }}</p>
+            <p class="text-center"><a href="{{ asset('uploads/'~user.loginUser~'/'~ user.passport) }} " target="_blank" >Voir le passeport  (PDF)</a></p>
+            <p class="text-center"><a href="{{ asset('uploads/'~user.loginUser~'/'~ user.contract) }}" target="_blank" >Voir le contrat  (PDF)</a></p>
+            <p class="text-center"><a href="{{ asset('uploads/'~user.loginUser~'/'~ user.photo) }}" target="_blank" >Voir la  photo</a></p>
+
+    </div>
+{% endblock %}

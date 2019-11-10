@@ -1,0 +1,220 @@
+{% extends 'template.html.twig' %}
+
+{% block body %}
+    {% set activePaye = 0 %}
+    {% set adminsActivesNonPaye = 0 %}
+    {% set adminsDesactive = 0 %}
+    {% set adminsActives = 0 %}
+    {% set PaidNonActives = 0 %}
+    {% set nonPaid = 0 %}
+
+    {% set desactiveNonPaye = 0 %}
+    {% set paid = 0 %}
+
+    {% for adminOrganisme in adminsOrganismes %}
+        {% if adminOrganisme.activitySector != constant('App\\Entity\\activitySector\\bicea\\Admin::bicea') %}
+           {% if adminOrganisme.active == 1 and adminOrganisme.paid == 1%}
+             {% set activePaye = activePaye + 1 %}
+           {% endif %}
+           {% if adminOrganisme.active == 0 %}
+                {% set adminsDesactive = adminsDesactive + 1 %}
+           {% endif %}
+            {% if adminOrganisme.active == 1 and adminOrganisme.paid == 0 %}
+                {% set adminsActivesNonPaye = adminsActivesNonPaye + 1 %}
+            {% endif %}
+            {% if adminOrganisme.active == 1 %}
+                {% set adminsActives = adminsActives + 1 %}
+            {% endif %}
+
+            {% if adminOrganisme.active == 0 and adminOrganisme.paid == 0%}
+                {% set desactiveNonPaye = desactiveNonPaye + 1 %}
+            {% endif %}
+            {% if adminOrganisme.paid == 1 %}
+                {% set paid = paid + 1 %}
+            {% endif %}
+            {% if adminOrganisme.active == 0 and adminOrganisme.paid == 1 %}
+                {% set PaidNonActives = PaidNonActives + 1 %}
+            {% endif %}
+            {% if adminOrganisme.paid == 0 %}
+                {% set nonPaid = nonPaid + 1 %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+<div class="container ">
+
+    <div class="row ">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-aqua"><i class="fa fa-envelope-o"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">Activés</span>
+                    <span class="info-box-number">{{ adminsActives  }}</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-green"><i class="fa fa-flag-o"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">Désactivés</span>
+                    <span class="info-box-number">{{ adminsDesactive }}</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-yellow"><i class="fa fa-files-o"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">Activés - non payés</span>
+                    <span class="info-box-number">{{  adminsActivesNonPaye }}</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-red"><i class="fa fa-star-o"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">Activés - payés </span>
+                    <span class="info-box-number">{{ activePaye }}</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <div class="row ">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-aqua"><i class="fa fa-envelope-o"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">Payés</span>
+                    <span class="info-box-number">{{ paid  }}</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-green"><i class="fa fa-flag-o"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">Non payés</span>
+                    <span class="info-box-number">{{ nonPaid }}</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-yellow"><i class="fa fa-files-o"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">Payés - non actives</span>
+                    <span class="info-box-number">{{  PaidNonActives }}</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-red"><i class="fa fa-star-o"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">Non - Actives-Payés </span>
+                    <span class="info-box-number">{{ desactiveNonPaye }}</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+    </div>
+</div>
+
+
+<div class="container">
+    <h2 class="page-header">Listes des <span class="btn btn-primary">{{  adminsOrganismes| length -1 }}</span> Organismes</h2>
+    <div class="table-responsive">
+        <table class="table table-hover">
+
+            <thead>
+            <tr>
+                <th scope="col">Id Organisme</th>
+                <th scope="col">Proprietaires</th>
+                <th scope="col">Nom organisme</th>
+                <th scope="col"><span class="glyphicon glyphicon-comment"> </span> Actif</th>
+                <th scope="col"><span class="glyphicon glyphicon-calendar"> </span> Payé</th>
+                <th scope="col"><span class="glyphicon glyphicon-calendar"> </span> Date</th>
+                <th scope="col"><span class="glyphicon glyphicon-cog"></span> Actions </th>
+            </tr>
+            </thead>
+            {% for adminOrganisme in adminsOrganismes %}
+               {% if adminOrganisme.activitySector != constant('App\\Entity\\activitySector\\bicea\\Admin::bicea') %}
+                 <tbody>
+                <tr>
+                    <td>{{ adminOrganisme.loginCompany |truncate(25, false, '...')}}</td>
+                    <td>{{ adminOrganisme.firstName |truncate(55, false, '...') }}</td>
+                    <td>{{ adminOrganisme.companyName |truncate(55, false, '...') }}</td>
+                    <td>
+                        {% if adminOrganisme.active == 1 %}
+                            Oui
+                        {% else %}
+                            Non
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if adminOrganisme.paid == 1 %}
+                            Oui
+                        {% else %}
+                            Non
+                        {% endif %}
+                    </td>
+                    <td>{{ adminOrganisme.createdAt| date('d/m/Y' ) }}</td>
+                    <td>
+                        {% if  adminOrganisme.active == 1 %}
+                            <a href="{{ path('desactiver', {'id': adminOrganisme.id}) }}" class="btn btn-warning"><strong class="glyphicon glyphicon-lock"> Désactiver</strong></a>
+                        {% else  %}
+                            <a href="{{ path('activer', {'id': adminOrganisme.id}) }}" class="btn btn-success"> <strong class="glyphicon glyphicon-success"> Activer</strong></a>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if  adminOrganisme.paid == 1%}
+                            <a href="{{ path('depayer', {'id': adminOrganisme.id}) }}" class="btn btn-warning"><strong class="glyphicon glyphicon-money"> Depayer</strong></a>
+                        {% else %}
+                            <a href="{{ path('payer', {'id': adminOrganisme.id}) }}" class="btn btn-success"> <strong class="glyphicon glyphicon-success"> payer</strong></a>
+                        {% endif %}
+                    </td>
+
+                </tr>
+                </tbody>
+               {% endif %}
+            {% endfor %}
+        </table>
+
+    </div>
+</div>
+
+
+
+{% endblock %}
