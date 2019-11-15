@@ -22,7 +22,7 @@ class RhUserManagementController extends AbstractController
 
 
         return $this->render('rh_user_management/rh_user_management.html.twig', [
-            'RhUsers' => $rhUserRepository->findBy( array('BiceaAmin' => $adminCurrent->getId())),
+            'RhUsers' => $rhUserRepository->findBy( array('BiceaAdmin' => $adminCurrent->getId())),
         ]);
     }
 

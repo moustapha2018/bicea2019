@@ -59,7 +59,7 @@ class RhUserController extends AbstractController
 
                 $filesystem->rename($this->getParameter( 'upload_directory'), $new_directory);
 
-                $user->setBiceaAmin($adminCurrent);
+                $user->setBiceaAdmin($adminCurrent);
                 $user->setCreatedAt(new \DateTime('now') );
                 $user->setIsActive(0);
                 $user->setIsAccountant(0);
@@ -76,7 +76,7 @@ class RhUserController extends AbstractController
         }
 
         return $this->render('rh_user/user.html.twig', [
-            'users' => $repository->findBy( array('BiceaAmin' => $adminCurrent->getId())),
+            'users' => $repository->findBy( array('BiceaAdmin' => $adminCurrent->getId())),
             'form' => $form->createView()
         ]);
     }
@@ -88,11 +88,17 @@ class RhUserController extends AbstractController
                               BiceaAdminRepository $adminRepository, Utils $utils)
     {
         $user = $repository->find($id);
-        $lastDossier = strtolower($user->getLoginUser());
 
-        $form = $this->createForm(RhUserType::class, $user);
+        $adminCurrent = $request->getSession()->get('administrator')->getId();
+        $admin = $adminRepository->find($adminCurrent);
+        $lastDossier = strtolower($admin->getLoginCompany().'-'.$user->getLoginUser());
 
-       /* if($request->isMethod('POST'))
+        //get the admin curent
+        $adminCurrent = $adminRepository->find($request->getSession()->get('administrator')->getId());
+
+        $form = $this->createForm(RhUserType::class, $user, array('idAdmin' =>$adminCurrent->getId() ));
+
+        if($request->isMethod('POST'))
         {
             $form->handleRequest($request);
             if($form->isValid())
@@ -117,8 +123,7 @@ class RhUserController extends AbstractController
                 $user->setPassport($fileNamePassport);
 
 
-                $adminCurrent = $request->getSession()->get('administrator')->getId();
-                $admin = $adminRepository->find($adminCurrent);
+
                 $new_directory = $utils->searchReplace($admin->getLoginCompany().'-'.$user->getLoginUser(), $this->getParameter( 'upload_directory'));
 
                 if($filesystem->exists($new_directory)){
@@ -131,7 +136,7 @@ class RhUserController extends AbstractController
                     $filesystem->rename($this->getParameter( 'upload_directory'), $new_directory);
 
                     $admin = $adminRepository->find($request->getSession()->get('administrator')->getId());
-                    $user->setBiceaAmin($admin);
+                    $user->setBiceaAdmin($admin);
                     $manager->flush();
                     $this->addFlash(
                         'success',
@@ -140,7 +145,7 @@ class RhUserController extends AbstractController
                     return $this->redirectToRoute('users');
                 }
             }
-        }*/
+        }
 
 
         return $this->render('rh_user/edit_user.html.twig', [

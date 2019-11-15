@@ -100,7 +100,7 @@ class BiceaAdmin
 
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\RhUser", mappedBy="BiceaAmin")
+     * @ORM\OneToMany(targetEntity="App\Entity\RhUser", mappedBy="BiceaAdmin")
      */
     private $rhUsers;
 
@@ -290,7 +290,7 @@ class BiceaAdmin
     {
         if (!$this->rhUsers->contains($rhUser)) {
             $this->rhUsers[] = $rhUser;
-            $rhUser->setBiceaAmin($this);
+            $rhUser->setBiceaAdmin($this);
         }
 
         return $this;
@@ -301,8 +301,8 @@ class BiceaAdmin
         if ($this->rhUsers->contains($rhUser)) {
             $this->rhUsers->removeElement($rhUser);
             // set the owning side to null (unless already changed)
-            if ($rhUser->getBiceaAmin() === $this) {
-                $rhUser->setBiceaAmin(null);
+            if ($rhUser->getBiceaAdmin() === $this) {
+                $rhUser->setBiceaAdmin(null);
             }
         }
 

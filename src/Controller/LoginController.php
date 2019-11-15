@@ -3,13 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\BiceaAdmin;
-use App\Entity\humanResources\User;
+
 
 use App\Entity\RhUser;
 use App\Repository\BiceaAdminRepository;
 use App\Repository\RhFunctionRepository;
 use App\Repository\RhUserRepository;
-use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -40,19 +39,25 @@ class LoginController extends AbstractController
 
                 if ($user == Null ){
                     $this->addFlash('warning', 'Ce compte n\'existe pas');
+
                     return $this->redirectToRoute("login");
 
                 }else if ($user->getPassword() != $request->get(self::password)) {
                     $this->addFlash('warning', 'Votre mot de passe est incorrect');
+
                     return $this->redirectToRoute("login");
 
-                }else{
+                }else if ($user->getIsActive() == 0) {
+                    $this->addFlash('warning', 'Votre compte est désactiver contactez votre organisme');
+
+                    return $this->redirectToRoute("login");
+                } else{
                     $session = $request->getSession();
                     $session->set('user', $user);
-                    return $this->redirectToRoute('homePage');
+                    return $this->redirectToRoute('homePageUser');
                 }
 
-            }else {
+            }else if($request->get(self::status) == self::administrator) {
                 $admin = $adminRepository->findOneBy(array($adminEntity::loginAdmin => $request->get(self::login)));
 
                 if ($admin == Null or $admin->getActive() == 0){
@@ -60,7 +65,7 @@ class LoginController extends AbstractController
                         'warning',
                         'Ce compte n\'existe pas ou il a été desactivé contacter Biacea');
 
-                    return $this->redirectToRoute('login');
+                    return $this->redirectToRoute('homePageAdmin');
 
                 }else if ($admin->getPassword() != $request->get(self::password)) {
                     $this->addFlash(
@@ -75,13 +80,17 @@ class LoginController extends AbstractController
                         ' Identifiant organisme incorrect');
 
                     return $this->redirectToRoute("login");
-                }
-
-                else{
+                } else{
                     $session = $request->getSession();
                     $session->set('administrator',$admin);
-                    return $this->redirectToRoute('homePage');
+                    return $this->redirectToRoute('homePageAdmin');
                 }
+            }else{
+                $this->addFlash(
+                    'warning',
+                    'Ce secteur d\'activité n\'est pas fourni par notre entreprise' );
+
+                return $this->redirectToRoute("login");
             }
 
 

@@ -47,16 +47,42 @@
 <body class="hold-transition skin-blue sidebar-mini">
 
 <div class="wrapper">
+    {% set administrator = app.session.get('administrator') %}
+    {% set user = app.session.get('user') %}
 
     {% block header  %}
-        {% include 'configuration/header.html.twig' %}
+        {% if user != null %}
+             {% include 'configuration/user_header.html.twig' %}
+        {% else %}
+             {% include 'configuration/admin_header.html.twig' %}
+        {% endif %}
     {% endblock %}
 
     <!-- Left side column. contains the logo and sidebar -->
     {% block left  %}
-        {% include 'configuration/left.html.twig' %}
-    {% endblock %}
+        {% if user != null %}
+            {% if sector == constant('App\\Entity\\BiceaAdmin::business') %}
+                {% include 'configuration/user_left_business.html.twig' %}
 
+            {% elseif sector == constant('App\\Entity\\BiceaAdmin::education') %}
+                {% include 'configuration/user_left_education.html.twig' %}
+
+            {% elseif sector == constant('App\\Entity\\BiceaAdmin::bicea') %}
+                {% include 'configuration/user_left_bicea.html.twig' %}
+            {% endif %}
+        {% endif %}
+        {% if administrator != null %}
+            {% if administrator.activitySector == constant('App\\Entity\\BiceaAdmin::business') %}
+                {% include 'configuration/admin_left_business.html.twig' %}
+
+            {% elseif administrator.activitySector == constant('App\\Entity\\BiceaAdmin::education') %}
+                {% include 'configuration/admin_left_education.html.twig' %}
+
+            {% elseif administrator.activitySector == constant('App\\Entity\\BiceaAdmin::bicea') %}
+                {% include 'configuration/admin_left_bicea.html.twig' %}
+            {% endif %}
+        {% endif %}
+    {% endblock %}
     <!-- Content Wrapper. Contains page content -->
 
     <div class="content-wrapper">

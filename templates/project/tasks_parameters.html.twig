@@ -1,0 +1,70 @@
+{% extends 'template.html.twig' %}
+{% block title %}les taches{% endblock %}
+{% block body %}
+
+    <div class="container">
+        <div class="container">
+            <h4><span class="glyphicon glyphicon-th-list"> </span> Listes des Taches pour ce projet</h4>
+            <div class="table-responsive">
+                <table class="table table-hover">
+
+                    <thead>
+                    <tr>
+                        <th scope="col">Affecter à</th>
+                        <th scope="col">Nom de la tache</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Data début</th>
+                        <th scope="col">Data fin</th>
+                        <th scope="col"><span class="glyphicon glyphicon-calendar"> </span> Dates</th>
+                        <th scope="col"><span class="glyphicon glyphicon-cog"></span> Demarez </th>
+                        <th scope="col"><span class="glyphicon glyphicon-cog"></span> Terminez </th>
+                    </tr>
+                    </thead>
+                    {% for task in tasks %}
+                        <tbody>
+                        <tr>
+                            <td>{{ task.RhUser.firstName |truncate(25, false, '...')}}</td>
+                            <td>{{ task.taskName |truncate(25, false, '...')}}</td>
+                            <td>{{ task.description |truncate(55, false, '...') }}</td>
+                            <td>{{ task.startDate |date('d/m/Y' ) }}</td>
+                            <td>{{ task.endDate |date('d/m/Y' ) }}</td>
+                            <td>{{ task.createdAt| date('d/m/Y' ) }}</td>
+                            {% if task.isDoing == 0 %}
+                                <td>
+                                    <a href="{{ path('startTask', {'id': task.id}) }}" class="btn btn-warning"><strong class=""> Non</strong></a>
+                                </td>
+                            {% else %}
+                                <td>
+                                    <a href="{{ path('startTask', {'id': task.id}) }}" class="btn btn-success"><strong class=""> Oui</strong></a>
+                                </td>
+                            {% endif %}
+                            {% if task.isFinished == 0 %}
+                                <td>
+                                    <a href="{{ path('endTask', {'id': task.id}) }}" class="btn btn-warning"><strong class=""> Non</strong></a>
+                                </td>
+                            {% else %}
+                                <td>
+                                    <a href="{{ path('endTask', {'id': task.id}) }}" class="btn btn-success"><strong class=""> Oui</strong></a>
+                                </td>
+                            {% endif %}
+
+
+                        </tr>
+
+                        </tbody>
+                    {% endfor %}
+                </table>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+{% endblock %}

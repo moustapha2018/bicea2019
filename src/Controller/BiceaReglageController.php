@@ -26,8 +26,8 @@ class BiceaReglageController extends AbstractController
      * @Route("/activer/{id}", name ="activer")
      */
     public function active($id,BiceaAdminRepository $adminRepository, ObjectManager $manager){
-        $amin = $adminRepository->find($id);
-        $amin->setActive(1);
+        $admin = $adminRepository->find($id);
+        $admin->setActive(1);
         $manager->flush();
         return $this->redirectToRoute('reglage');
 

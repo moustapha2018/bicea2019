@@ -51,13 +51,19 @@ class RhUserType extends AbstractType
                 'label' => 'Identifiant utilisateur',
                 'attr' => ['placeholder' => 'Saisir un identifiant utilisateur']
             ])
-            ->add('contract', FileType::class, [
-                'label' => 'Contrat'
-            ])
+            ->add('contract', FileType::class, array(
+                'data_class' => null,
+                 //'required' => false,
+                 'label' => 'Contrat')
+            )
             ->add('passport', FileType::class,[
+                'data_class' => null,
+                //'required' => false,
                 'label' => 'Pièce d\'identité'
             ])
             ->add('photo', FileType::class,[
+                'data_class' => null,
+                //'required' => false,
                 'label' => 'Photo'
             ])
 

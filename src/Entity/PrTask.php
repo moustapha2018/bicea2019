@@ -56,6 +56,22 @@ class PrTask
      */
     private $RhUser;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Project", inversedBy="prTasks")
+     */
+    private $Project;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isDoing;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isFinished;
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -156,4 +172,41 @@ class PrTask
 
         return $this;
     }
+
+    public function getProject(): ?Project
+    {
+        return $this->Project;
+    }
+
+    public function setProject(?Project $Project): self
+    {
+        $this->Project = $Project;
+
+        return $this;
+    }
+
+    public function getIsDoing(): ?bool
+    {
+        return $this->isDoing;
+    }
+
+    public function setIsDoing(bool $isDoing): self
+    {
+        $this->isDoing = $isDoing;
+
+        return $this;
+    }
+
+    public function getIsFinished(): ?bool
+    {
+        return $this->isFinished;
+    }
+
+    public function setIsFinished(bool $isFinished): self
+    {
+        $this->isFinished = $isFinished;
+
+        return $this;
+    }
+
 }

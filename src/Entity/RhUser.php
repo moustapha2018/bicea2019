@@ -21,7 +21,7 @@ class RhUser
     const contract = 'contract';
     const passport = 'passport';
     const photo = 'photo';
-    const createdByAdmin = 'BiceaAmin';
+    const createdByAdmin = 'BiceaAdmin';
 
     const isProjectManager = 'isProjectManager';
     const isAccountant = 'isAccountant';
@@ -91,17 +91,8 @@ class RhUser
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\BiceaAdmin", inversedBy="rhUsers")
      */
-    private $BiceaAmin;
+    private $BiceaAdmin;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Project", mappedBy="RhUser")
-     */
-    private $projects;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\PrTask", mappedBy="RhUser")
-     */
-    private $prTasks;
 
     /**
      * @ORM\Column(type="boolean")
@@ -118,6 +109,11 @@ class RhUser
      */
     private $isActive;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\PrTask", mappedBy="RhUser")
+     */
+    private $prTasks;
+
 
 
     public function __construct()
@@ -125,7 +121,7 @@ class RhUser
         $this->rhFunctions = new ArrayCollection();
         $this->rhfunctions = new ArrayCollection();
         $this->rhFileUsers = new ArrayCollection();
-        $this->projects = new ArrayCollection();
+        //$this->projects = new ArrayCollection();
         $this->prTasks = new ArrayCollection();
     }
 
@@ -267,42 +263,49 @@ class RhUser
         return $this;
     }
 
-    public function getBiceaAmin(): ?BiceaAdmin
+    public function getBiceaAdmin(): ?BiceaAdmin
     {
-        return $this->BiceaAmin;
+        return $this->BiceaAdmin;
     }
 
-    public function setBiceaAmin(?BiceaAdmin $BiceaAmin): self
+    public function setBiceaAdmin(?BiceaAdmin $BiceaAdmin): self
     {
-        $this->BiceaAmin = $BiceaAmin;
+        $this->BiceaAdmin = $BiceaAdmin;
 
         return $this;
     }
 
-    /**
-     * @return Collection|Project[]
-     */
-    public function getProjects(): Collection
+    public function getIsProjectManager(): ?bool
     {
-        return $this->projects;
+        return $this->isProjectManager;
     }
 
-    public function addProject(Project $project): self
+    public function setIsProjectManager(bool $isProjectManager): self
     {
-        if (!$this->projects->contains($project)) {
-            $this->projects[] = $project;
-            $project->addRhUser($this);
-        }
+        $this->isProjectManager = $isProjectManager;
+        return $this;
+    }
+
+    public function getIsAccountant(): ?bool
+    {
+        return $this->isAccountant;
+    }
+
+    public function setIsAccountant(bool $isAccountant): self
+    {
+        $this->isAccountant = $isAccountant;
 
         return $this;
     }
 
-    public function removeProject(Project $project): self
+    public function getIsActive(): ?bool
     {
-        if ($this->projects->contains($project)) {
-            $this->projects->removeElement($project);
-            $project->removeRhUser($this);
-        }
+        return $this->isActive;
+    }
+
+    public function setIsActive(bool $isActive): self
+    {
+        $this->isActive = $isActive;
 
         return $this;
     }
@@ -334,42 +337,6 @@ class RhUser
                 $prTask->setRhUser(null);
             }
         }
-
-        return $this;
-    }
-
-    public function getIsProjectManager(): ?bool
-    {
-        return $this->isProjectManager;
-    }
-
-    public function setIsProjectManager(bool $isProjectManager): self
-    {
-        $this->isProjectManager = $isProjectManager;
-
-        return $this;
-    }
-
-    public function getIsAccountant(): ?bool
-    {
-        return $this->isAccountant;
-    }
-
-    public function setIsAccountant(bool $isAccountant): self
-    {
-        $this->isAccountant = $isAccountant;
-
-        return $this;
-    }
-
-    public function getIsActive(): ?bool
-    {
-        return $this->isActive;
-    }
-
-    public function setIsActive(bool $isActive): self
-    {
-        $this->isActive = $isActive;
 
         return $this;
     }

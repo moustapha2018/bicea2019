@@ -54,14 +54,15 @@ class Project
     private $BiceaAdmin;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\RhUser", inversedBy="projects")
+     * @ORM\OneToMany(targetEntity="App\Entity\PrTask", mappedBy="Project")
      */
-    private $RhUser;
+    private $prTasks;
 
     public function __construct()
     {
-        $this->RhUser = new ArrayCollection();
+        $this->prTasks = new ArrayCollection();
     }
+
 
     public function getId(): ?int
     {
@@ -153,28 +154,35 @@ class Project
     }
 
     /**
-     * @return Collection|RhUser[]
+     * @return Collection|PrTask[]
      */
-    public function getRhUser(): Collection
+    public function getPrTasks(): Collection
     {
-        return $this->RhUser;
+        return $this->prTasks;
     }
 
-    public function addRhUser(RhUser $rhUser): self
+    public function addPrTask(PrTask $prTask): self
     {
-        if (!$this->RhUser->contains($rhUser)) {
-            $this->RhUser[] = $rhUser;
+        if (!$this->prTasks->contains($prTask)) {
+            $this->prTasks[] = $prTask;
+            $prTask->setProject($this);
         }
 
         return $this;
     }
 
-    public function removeRhUser(RhUser $rhUser): self
+    public function removePrTask(PrTask $prTask): self
     {
-        if ($this->RhUser->contains($rhUser)) {
-            $this->RhUser->removeElement($rhUser);
+        if ($this->prTasks->contains($prTask)) {
+            $this->prTasks->removeElement($prTask);
+            // set the owning side to null (unless already changed)
+            if ($prTask->getProject() === $this) {
+                $prTask->setProject(null);
+            }
         }
 
         return $this;
     }
+
+
 }
