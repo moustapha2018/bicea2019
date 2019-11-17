@@ -1,0 +1,218 @@
+<aside class="main-sidebar">
+    {% if administrator is not null %}
+        {% set currentUserName = administrator.id  %}
+        {% set homePage = 'homePageAdmin' %}
+    {% endif %}
+    {% if user is not null  %}
+        {% set currentUserName = user.firstName  %}
+        {% set homePage = 'homePageUser' %}
+    {% endif %}
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- Sidebar user panel -->
+        <div class="user-panel">
+            <div class="pull-left image">
+                <img src="{{ asset('administrator/dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
+            </div>
+            <div class="pull-left info">
+
+                    <p>{{ society.companyName }}</p>
+
+                <a href="#"><i class="fa fa-circle text-success"></i> {{ currentUserName }}</a>
+            </div>
+        </div>
+        <!-- search form -->
+        <form action="#" method="get" class="sidebar-form">
+            <div class="input-group">
+                <input type="text" name="q" class="form-control" placeholder="Rechercher...">
+                <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+            </div>
+        </form>
+        <!-- /.search form -->
+        <ul class="sidebar-menu" data-widget="tree">
+            <li class="header">Navigation principale</li>
+            <li class="active ">
+                <a href="{{ path(homePage) }}"><i class="fa fa-dashboard"></i> Tableaux de bord</a>
+            </li>
+   {#--------- ressources humaines-----------------------------------------------------#}
+            {% if (user.isHumanRessource is defined and  user.isHumanRessource == 1) or administrator is not null %}
+                <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-files-o"></i>
+                    <span>Ressources humaines</span>
+                    <span class="pull-right-container">
+              <span class="label label-primary pull-right">2</span>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href=" {{path('functions') }}"><i class="fa fa-circle-o"></i> Fonctions</a></li>
+                    <li><a href="{{ path('users') }} "><i class="fa fa-circle-o"></i> Collaborateurs</a></li>
+                    <li><a href="{{ path('rhUserManagement') }} "><i class="fa fa-circle-o"></i> Gestion Personnels</a></li>
+                </ul>
+            </li>
+            {% endif %}
+   {#--------- project-----------------------------------------------------#}
+            <li>
+                <a href="{{ path('view_projects')}}">
+                    <i class="fa fa-eye"></i> <span>Projets</span>
+                    <span class="pull-right-container">
+              <small class="label pull-right bg-green">Visiter</small>
+            </span>
+                </a>
+            </li>
+   {#--------- Gestion de Project -----------------------------------------------------#}
+            {% if (user.isProjectManager is defined and  user.isProjectManager == 1) or administrator is not null %}
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-laptop"></i>
+                        <span>Gestion de Project</span>
+                        <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{ path('projects') }}"><i class="fa fa-circle-o"></i> Project</a></li>
+                        <li><a href="{{ path('tasks')}}"><i class="fa fa-circle-o"></i> Tache</a></li>
+
+                    </ul>
+                </li>
+            {% endif %}
+   {#--------- Comptabilités -----------------------------------------------------#}
+            {% if (user.isAccountant is defined and  user.isAccountant == 1) or administrator is not null %}
+                <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-files-o"></i>
+                    <span>Comptabilités</span>
+                    <span class="pull-right-container">
+              <span class="label label-primary pull-right">3</span>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ path('functions') }}"><i class="fa fa-circle-o"></i> Regler Fournisseur</a></li>
+                    <li><a href="{{ path('users') }}"><i class="fa fa-circle-o"></i> Payer Frais</a></li>
+                </ul>
+            </li>
+            {% endif %}
+   {#--------- Bicea  -----------------------------------------------------#}
+          {% if society.activitySector == 'Bicea' %}
+              {% if (user.isAdministratorManagement is defined and  user.isAdministratorManagement == 1) or administrator is not null %}
+                  <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-laptop"></i>
+                            <span>Gestions des Admins</span>
+                            <span class="pull-right-container">
+                                  <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="{{ path('admins') }}"><i class="fa fa-circle-o"></i> Administrateur</a></li>
+                            <li><a href="{{ path('reglage')}}"><i class="fa fa-circle-o"></i> Reglages</a></li>
+                            <li><a href="{{ path('reglage')}}"><i class="fa fa-circle-o"></i> Statistiques</a></li>
+                        </ul>
+                    </li>
+              {% endif %}
+              <li class="header">Plus d'informations</li>
+              <li><a href=""><i class="fa fa-circle-o text-yellow"></i> <span>Qui sommes nous</span></a></li>
+              <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Nos Réglements</span></a></li>
+              <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
+            {% endif %}
+    {#--------- Business  -----------------------------------------------------#}
+            {% if society.activitySector == 'Business' %}
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-laptop"></i>
+                        <span>Business</span>
+                        <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        {#--------- Clent et fournisseur--------------------------------------------#}
+                        {% if (user.isCustomerSupplierShareHolser is defined and  user.isCustomerSupplierShareHolser == 1) or administrator is not null %}
+                            <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-pie-chart"></i>
+                                <span>Client & Fournisseur</span>
+                                <span class="pull-right-container">
+                                  <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> Clients</a></li>
+                                <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i> Fournisseur</a></li>
+                            </ul>
+                        </li>
+                        {% endif %}
+                        {#--------- fin client fournisseur --------------------------------------------------#}
+                        {#--------- Opérations -----------------------------------------------------#}
+                        {% if (user.isOperation is defined and  user.isOperation == 1) or administrator is not null %}
+                            <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-pie-chart"></i>
+                                <span>Opérations</span>
+                                <span class="pull-right-container">
+                                  <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> ChartJS</a></li>
+                                <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
+                                <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
+                                <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
+                            </ul>
+                        </li>
+                        {% endif %}
+                        {#--------- fin Opérations --------------------------------------------------#}
+                        {#--------- mouvements -----------------------------------------------------#}
+                        {% if (user.isMovement is defined and  user.isMovement == 1) or administrator is not null %}
+                            <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa fa-table"></i>
+                                <span>Mouvement</span>
+                                <span class="pull-right-container">
+                                  <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> ChartJS</a></li>
+                                <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
+                                <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
+                                <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
+                            </ul>
+                        </li>
+                        {% endif %}
+                        {#--------- fin mouvement --------------------------------------------------#}
+                        {#--------- Stock et Transport--------------------------------------------#}
+                        {% if (user.stockTransport is defined and  user.stockTransport == 1) or administrator is not null %}
+                            <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-pie-chart"></i>
+                                <span>Stock & Transport</span>
+                                <span class="pull-right-container">
+                                  <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> Magasion</a></li>
+                                <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i> Transport</a></li>
+                            </ul>
+                        </li>
+                        {% endif %}
+                        {#--------- fin Stock et Transport --------------------------------------------------#}
+                    </ul>
+                </li>
+                <li class="header">Plus d'informations</li>
+                <li><a href=""><i class="fa fa-circle-o text-yellow"></i> <span>Qui sommes nous</span></a></li>
+                <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Nos Réglements</span></a></li>
+                <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
+
+            {% endif %}
+
+        </ul>
+
+    </section>
+    <!-- /.sidebar -->
+</aside>

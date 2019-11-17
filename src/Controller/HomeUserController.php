@@ -16,38 +16,28 @@ class HomeUserController extends AbstractController
      */
     public function homePageUser(Request $request, BiceaAdminRepository $biceaAdminRepository)
     {
-
-        //get current user
         $userCurrent = $request->getSession()->get('user');
+        $admin = $biceaAdminRepository->find($userCurrent->getBiceaAdmin());
+        $infoSociety = [
+            'idAdminSociety'=> $admin->getId(),
+            'activitySector' => $admin->getActivitySector(),
+            'companyName' =>$admin->getCompanyName()
+        ];
+        $session = $request->getSession();
+        $session->set('society', $infoSociety);
+
         if ($userCurrent != Null){
             //Get the admin of user
-            $adminUser = $biceaAdminRepository->find($userCurrent->getBiceaAdmin());
-            if($adminUser->getActivitySector() == BiceaAdmin::business){
-                return $this->render("home_user/home_user_business.html.twig",[
-                    'infoSociety' => [
-                            'sectorActivity' => $adminUser->getActivitySector(),
-                            'companyName' =>$adminUser->getCompanyName()
-                        ],
-                    'administratorUser' => $adminUser
-                ]);
 
-            }else if($adminUser->getActivitySector() == BiceaAdmin::education){
-                return $this->render("home_user/home_user_education.html.twig",[
-                    'infoSociety' => [
-                        'sectorActivity' => $adminUser->getActivitySector(),
-                        'companyName' =>$adminUser->getCompanyName(),
-                        'functionUser' => $userCurrent
-                    ],
+            if($admin->getActivitySector() == BiceaAdmin::business){
+                return $this->render("home_user/home_user_business.html.twig");
 
-                ]);
+            }else if($admin->getActivitySector() == BiceaAdmin::education){
+                return $this->render("home_user/home_user_education.html.twig");
 
-            }else if ($adminUser->getActivitySector() == BiceaAdmin::bicea){
-                return $this->render('home_user/home_user_bicea.html.twig', [
-                    'infoSociety' => [
-                        'sectorActivity' => $adminUser->getActivitySector(),
-                        'companyName' =>$adminUser->getCompanyName()
-                    ],
-                ]);
+            }else if ($admin->getActivitySector() == BiceaAdmin::bicea){
+
+                return $this->render('home_user/home_user_bicea.html.twig');
             }
         }
 

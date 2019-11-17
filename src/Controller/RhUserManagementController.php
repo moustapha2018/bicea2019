@@ -71,4 +71,95 @@ class RhUserManagementController extends AbstractController
         return $this->redirectToRoute('rhUserManagement');
     }
 
+    /**
+     * @Route("humanRessource/{id}", name="humanRessource")
+     */
+    public  function humanRessource($id, RhUserRepository $rhUserRepository, ObjectManager $manager){
+
+        $user = $rhUserRepository->find($id);
+        if($user->getIsHumanRessource() == 0){
+            $user->setIsHumanRessource(1);
+        }else{
+            $user->setIsHumanRessource(0);
+        }
+        $manager->flush();
+        return $this->redirectToRoute('rhUserManagement');
+    }
+
+    /**
+     * @Route("administratorManagement/{id}", name="administratorManagement")
+     */
+    public  function administratorManagement($id, RhUserRepository $rhUserRepository, ObjectManager $manager){
+
+        $user = $rhUserRepository->find($id);
+        if($user->getIsAdministratorManagement() == 0){
+            $user->setIsAdministratorManagement(1);
+        }else{
+            $user->setIsAdministratorManagement(0);
+        }
+        $manager->flush();
+        return $this->redirectToRoute('rhUserManagement');
+    }
+
+    /**
+     * @Route("customerSupplierShareHolser/{id}", name="customerSupplierShareHolser")
+     */
+    public  function customerSupplierShareHolser($id, RhUserRepository $rhUserRepository, ObjectManager $manager){
+
+        $user = $rhUserRepository->find($id);
+        if($user->getIsCustomerSupplierShareHolser() == 0){
+            $user->setIsCustomerSupplierShareHolser(1);
+        }else{
+            $user->setIsCustomerSupplierShareHolser(0);
+        }
+        $manager->flush();
+        return $this->redirectToRoute('rhUserManagement');
+    }
+
+    /**
+     * @Route("operation/{id}", name="operation")
+     */
+    public  function operation($id, RhUserRepository $rhUserRepository, ObjectManager $manager){
+
+        $user = $rhUserRepository->find($id);
+        if($user->getIsOperation() == 0){
+            $user->setIsOperation(1);
+        }else{
+            $user->setIsOperation(0);
+        }
+        $manager->flush();
+        return $this->redirectToRoute('rhUserManagement');
+    }
+
+    /**
+     * @Route("movement/{id}", name="movement")
+     */
+    public  function movement($id, RhUserRepository $rhUserRepository, ObjectManager $manager){
+
+        $user = $rhUserRepository->find($id);
+        if($user->getIsMovement() == 0){
+            $user->setIsMovement(1);
+        }else{
+            $user->setIsMovement(0);
+        }
+        $manager->flush();
+        return $this->redirectToRoute('rhUserManagement');
+    }
+
+    /**
+     * @Route("stockTransport/{id}", name="stockTransport")
+     */
+    public  function stockTransport($id, RhUserRepository $rhUserRepository, ObjectManager $manager){
+
+        $user = $rhUserRepository->find($id);
+        if($user->getIsStockTransport() == 0){
+            $user->setIsStockTransport(1);
+        }else{
+            $user->setIsStockTransport(0);
+        }
+        $manager->flush();
+        return $this->redirectToRoute('rhUserManagement');
+    }
+
+
 }

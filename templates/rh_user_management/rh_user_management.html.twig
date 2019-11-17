@@ -9,7 +9,8 @@
             <thead>
             <tr>
                 <th colspan="2" scope="col" class="text-center" bgcolor="#6495ed">Infos utilisateurs</th>
-                <th colspan="3" scope="col" class="text-center" bgcolor="#6495ed">Gestions de droits</th>
+                <th colspan="{% if society.activitySector ==  constant('App\\Entity\\BiceaAdmin::bicea') %}5 {% else %} 8 {% endif %}"
+                    scope="col" class="text-center" bgcolor="#6495ed">Gestions de droits</th>
             </tr>
             <tr>
 
@@ -18,8 +19,17 @@
                 <th scope="col">Statut Compte</th>
                 <th scope="col">Management</th>
                 <th scope="col">Comptabilités</th>
+                <th scope="col">Ressources humaines</th>
+                {% if society.activitySector ==  constant('App\\Entity\\BiceaAdmin::bicea') %}
+                    <th scope="col">Administrateurs</th>
+                {% endif %}
 
-
+                {% if society.activitySector ==  constant('App\\Entity\\BiceaAdmin::business') %}
+                    <th scope="col">Client & Fournisseur & Actionnaire?</th>
+                    <th scope="col">Opérations?</th>
+                    <th scope="col">Movement?</th>
+                    <th scope="col">Stock & Transport?</th>
+                {% endif %}
             </tr>
             </thead>
             {% for RhUser in RhUsers %}
@@ -49,6 +59,54 @@
                                 <a href="{{ path('accounting', {'id': RhUser.id}) }}" class="btn btn-success"> <strong class="glyphicon glyphicon-success"> Activer</strong></a>
                             {% endif %}
                         </td>
+                        <td>
+                            {% if RhUser.isHumanRessource == 1 %}
+                                <a href="{{ path('humanRessource', {'id': RhUser.id}) }}" class="btn btn-warning"><strong class="glyphicon glyphicon-lock"> Désactiver</strong></a>
+                            {% else  %}
+                                <a href="{{ path('humanRessource', {'id': RhUser.id}) }}" class="btn btn-success"> <strong class="glyphicon glyphicon-success"> Activer</strong></a>
+                            {% endif %}
+                        </td>
+
+                        {% if society.activitySector ==  constant('App\\Entity\\BiceaAdmin::bicea') %}
+                            <td>
+                                {% if RhUser.isAdministratorManagement == 1 %}
+                                    <a href="{{ path('administratorManagement', {'id': RhUser.id}) }}" class="btn btn-warning"><strong class="glyphicon glyphicon-lock"> Désactiver</strong></a>
+                                {% else  %}
+                                    <a href="{{ path('administratorManagement', {'id': RhUser.id}) }}" class="btn btn-success"> <strong class="glyphicon glyphicon-success"> Activer</strong></a>
+                                {% endif %}
+                            </td>
+                        {% endif %}
+
+                        {% if society.activitySector ==  constant('App\\Entity\\BiceaAdmin::business') %}
+                            <td>
+                                {% if RhUser.isCustomerSupplierShareHolser == 1 %}
+                                    <a href="{{ path('customerSupplierShareHolser', {'id': RhUser.id}) }}" class="btn btn-warning"><strong class="glyphicon glyphicon-lock"> Désactiver</strong></a>
+                                {% else  %}
+                                    <a href="{{ path('customerSupplierShareHolser', {'id': RhUser.id}) }}" class="btn btn-success"> <strong class="glyphicon glyphicon-success"> Activer</strong></a>
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if RhUser.isOperation == 1 %}
+                                    <a href="{{ path('operation', {'id': RhUser.id}) }}" class="btn btn-warning"><strong class="glyphicon glyphicon-lock"> Désactiver</strong></a>
+                                {% else  %}
+                                    <a href="{{ path('operation', {'id': RhUser.id}) }}" class="btn btn-success"> <strong class="glyphicon glyphicon-success"> Activer</strong></a>
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if RhUser.isMovement == 1 %}
+                                    <a href="{{ path('movement', {'id': RhUser.id}) }}" class="btn btn-warning"><strong class="glyphicon glyphicon-lock"> Désactiver</strong></a>
+                                {% else  %}
+                                    <a href="{{ path('movement', {'id': RhUser.id}) }}" class="btn btn-success"> <strong class="glyphicon glyphicon-success"> Activer</strong></a>
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if RhUser.isStockTransport == 1 %}
+                                    <a href="{{ path('stockTransport', {'id': RhUser.id}) }}" class="btn btn-warning"><strong class="glyphicon glyphicon-lock"> Désactiver</strong></a>
+                                {% else  %}
+                                    <a href="{{ path('stockTransport', {'id': RhUser.id}) }}" class="btn btn-success"> <strong class="glyphicon glyphicon-success"> Activer</strong></a>
+                                {% endif %}
+                            </td>
+                        {% endif %}
 
 
 

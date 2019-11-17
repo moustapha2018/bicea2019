@@ -20,6 +20,15 @@ class HomeAdminController extends AbstractController
     {
         //get admin current
         $adminCurrent = $request->getSession()->get('administrator');
+        $admin = $adminCurrent;
+        $infoSociety = [
+            'idAdminSociety'=> $admin->getId(),
+            'activitySector' => $admin->getActivitySector(),
+            'companyName' =>$admin->getCompanyName()
+        ];
+        $session = $request->getSession();
+        $session->set('society', $infoSociety);
+
         if ($adminCurrent!= Null){
             if ($adminCurrent->getActivitySector() == BiceaAdmin::bicea){
                     $adminsOrganisme = $adminRepository->findAll();
@@ -42,8 +51,7 @@ class HomeAdminController extends AbstractController
             return $this->render('index.html.twig' );
         }
 
-        //get user current
-        $userCurrent = $request->getSession()->get('user');
+
 
 
     }

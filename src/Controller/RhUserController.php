@@ -64,6 +64,12 @@ class RhUserController extends AbstractController
                 $user->setIsActive(0);
                 $user->setIsAccountant(0);
                 $user->setIsProjectManager(0);
+                $user->setIsAdministratorManagement(0);
+                $user->setIsCustomerSupplierShareHolser(0);
+                $user->setIsHumanRessource(0);
+                $user->setIsMovement(0);
+                $user->setIsStockTransport(0);
+                $user->setIsOperation(0);
                 $manager->persist($user);
                 $manager->flush();
                 $this->addFlash(

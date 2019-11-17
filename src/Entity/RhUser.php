@@ -114,6 +114,37 @@ class RhUser
      */
     private $prTasks;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isCustomerSupplierShareHolser;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isMovement;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isStockTransport;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isAdministratorManagement;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isHumanRessource;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isOperation;
+
+
 
 
     public function __construct()
@@ -340,6 +371,79 @@ class RhUser
 
         return $this;
     }
+
+    public function getIsCustomerSupplierShareHolser(): ?bool
+    {
+        return $this->isCustomerSupplierShareHolser;
+    }
+
+    public function setIsCustomerSupplierShareHolser(bool $isCustomerSupplierShareHolser): self
+    {
+        $this->isCustomerSupplierShareHolser = $isCustomerSupplierShareHolser;
+
+        return $this;
+    }
+
+    public function getIsMovement(): ?bool
+    {
+        return $this->isMovement;
+    }
+
+    public function setIsMovement(bool $isMovement): self
+    {
+        $this->isMovement = $isMovement;
+
+        return $this;
+    }
+
+    public function getIsStockTransport(): ?bool
+    {
+        return $this->isStockTransport;
+    }
+
+    public function setIsStockTransport(bool $isStockTransport): self
+    {
+        $this->isStockTransport = $isStockTransport;
+
+        return $this;
+    }
+
+    public function getIsAdministratorManagement(): ?bool
+    {
+        return $this->isAdministratorManagement;
+    }
+
+    public function setIsAdministratorManagement(bool $isAdministratorManagement): self
+    {
+        $this->isAdministratorManagement = $isAdministratorManagement;
+
+        return $this;
+    }
+
+    public function getIsHumanRessource(): ?bool
+    {
+        return $this->isHumanRessource;
+    }
+
+    public function setIsHumanRessource(bool $isHumanRessource): self
+    {
+        $this->isHumanRessource = $isHumanRessource;
+
+        return $this;
+    }
+
+    public function getIsOperation(): ?bool
+    {
+        return $this->isOperation;
+    }
+
+    public function setIsOperation(bool $isOperation): self
+    {
+        $this->isOperation = $isOperation;
+
+        return $this;
+    }
+
 
 
 
