@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\BiceaAdmin;
 use App\Form\BiceaAdminType;
 use App\Repository\BiceaAdminRepository;
+use App\Service\Utils;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -72,39 +73,65 @@ class BiceaAdminController extends AbstractController
     /**
      * @Route("/edit/admin/{id}", name ="edit_admin")
      */
-    public function edit_admin($id, BiceaAdminRepository $repository, Request $request,ObjectManager $manager){
+    public function edit_admin($id, BiceaAdminRepository $repository, Request $request,
+                               Utils $utils, ObjectManager $manager){
         $admin = $repository->find($id);
-        $form = $this->createForm(BiceaAdminType::class,$admin);
-        if($request->isMethod('POST'))
+
+        if ($admin != null)
         {
-            $form->handleRequest($request);
-            if($form->isValid())
+            $form = $this->createForm(BiceaAdminType::class,$admin);
+            if($request->isMethod('POST'))
             {
-                $manager->flush();
-                $this->addFlash(
-                    'success',
-                    'Administrateur modifié avec succes!'
-                );
-                return $this->redirectToRoute('admins');
+                $form->handleRequest($request);
+                if($form->isValid())
+                {
+                    $manager->flush();
+                    $this->addFlash(
+                        'success',
+                        'Administrateur modifié avec succes!'
+                    );
+                    return $this->redirectToRoute('admins');
+                }
             }
+            return $this ->render('bicea_admin/edit_admin.html.twig',[
+                'admin'=>$admin,
+                'form' =>$form->createView()
+            ]);
+        }else{
+            $this->addFlash(
+                $utils->messageObjetNotFound()[0],
+                $utils->messageObjetNotFound()[1]
+            );
+            return $this->redirectToRoute('admins');
         }
-        return $this ->render('bicea_admin/edit_admin.html.twig',[
-            'admin'=>$admin,
-            'form' =>$form->createView()
-        ]);
+
+
     }
 
     /**
      * @Route("/delete/admin/{id}", name ="delete_admin")
      */
-    public function delete_organisme($id, BiceaAdminRepository $repository,ObjectManager $manager){
+    public function delete_organisme($id, BiceaAdminRepository $repository,
+                                     Utils $utils, ObjectManager $manager)
+    {
         $admin = $repository->find($id);
-        $manager->remove($admin);
-        $manager->flush();
-        $this->addFlash(
-            'info',
-            'administrateur supprimé avec succes!'
-        );
-        return $this ->redirectToRoute('admins');
+        if ($admin != null)
+        {
+            $manager->remove($admin);
+            $manager->flush();
+            $this->addFlash(
+                'info',
+                'administrateur supprimé avec succes!'
+            );
+            return $this ->redirectToRoute('admins');
+
+        }else{
+            $this->addFlash(
+                $utils->messageObjetNotFound()[0],
+                $utils->messageObjetNotFound()[1]
+            );
+            return $this->redirectToRoute('admins');
+        }
+
     }
 }

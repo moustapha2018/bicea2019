@@ -8,6 +8,7 @@ use App\Form\ProjectType;
 use App\Repository\BiceaAdminRepository;
 use App\Repository\ProjectRepository;
 use App\Repository\PrTaskRepository;
+use App\Service\Utils;
 use Doctrine\Common\Persistence\ObjectManager;
 use phpDocumentor\Reflection\Types\Null_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -21,23 +22,16 @@ class ProjectController extends AbstractController
      */
 
     public function project(Request $request, ObjectManager $manager, ProjectRepository $repository,
-                                 BiceaAdminRepository $biceaAdminRepository)
+                                 BiceaAdminRepository $biceaAdminRepository, Utils $utils)
     {
         $project = new Project();
 
         $form = $this->createForm(ProjectType::class, $project);
         $form->handleRequest($request);
 
-        if($form ->isSubmitted() && $form->isValid()){
+        $admin = $utils->getAdmin($request,$biceaAdminRepository);
 
-            //get admin current
-            $adminCurrent = $request->getSession()->get('administrator')->getId();
-            if ($adminCurrent != Null){
-                $admin = $biceaAdminRepository->find($adminCurrent);
-            }else{
-                $admin_idUser = $request->getSession()->get('user')->getBiceaAdmin();
-                $admin = $biceaAdminRepository->fin($admin_idUser);
-            }
+        if($form ->isSubmitted() && $form->isValid()){
             $project->setBiceaAdmin($admin);
             $project->setCreatedAt(new \DateTime('now') );
             $manager->persist($project);
@@ -49,77 +43,85 @@ class ProjectController extends AbstractController
             return $this->redirectToRoute('projects');
 
         }
-
-
-        $admin_id = $biceaAdminRepository->find($request->getSession()->get('administrator')->getId());
-        $projects = $repository->findBy( array('BiceaAdmin' => $admin_id->getId()));
-
         return $this->render('project/project.html.twig', [
             'form' => $form->createView(),
-            'projects' => $projects
+            'projects' => $repository->findBy( array('BiceaAdmin' => $admin->getId()))
         ]);
     }
 
     /**
      * @Route("/edit/project/{id}", name ="edit_project")
      */
-    public function edit_project($id, ProjectRepository $repository, Request $request, ObjectManager $manager){
+    public function edit_project($id, ProjectRepository $repository, Request $request,
+                                 ObjectManager $manager, Utils $utils){
         $project = $repository->find($id);
-        $form = $this->createForm(ProjectType::class,$project);
-        if($request->isMethod('POST'))
+        if ($project != null)
         {
-            $form->handleRequest($request);
-            if($form->isValid())
+            $form = $this->createForm(ProjectType::class,$project);
+            if($request->isMethod('POST'))
             {
-                $manager->flush();
-                $this->addFlash(
-                    'info',
-                    'project modifiée avec succes!'
-                );
-                return $this->redirectToRoute('projects');
+                $form->handleRequest($request);
+                if($form->isValid())
+                {
+                    $manager->flush();
+                    $this->addFlash(
+                        'info',
+                        'project modifiée avec succes!'
+                    );
+                    return $this->redirectToRoute('projects');
+                }
             }
+            return $this ->render('project/edit_project.html.twig',[
+                'project'=>$project,
+                'form' =>$form->createView()
+            ]);
+
+        }else
+        {
+            $this->addFlash(
+                $utils->messageObjetNotFound()[0],
+                $utils->messageObjetNotFound()[1]
+            );
+            return $this->redirectToRoute('projects');
+
         }
-        return $this ->render('project/edit_project.html.twig',[
-            'project'=>$project,
-            'form' =>$form->createView()
-        ]);
     }
 
     /**
      * @Route("/delete/project/{id}", name ="delete_project")
      */
-    public function delete_project($id, ProjectRepository $repository, ObjectManager $manager){
+    public function delete_project($id, ProjectRepository $repository, ObjectManager $manager, Utils $utils){
         $project = $repository->find($id);
-        $manager->remove($project);
-        $manager->flush();
-        $this->addFlash(
-            'info',
-            'project supprimée avec succes!'
-        );
-        return $this ->redirectToRoute('projects');
+        if ($project != null)
+        {
+            $manager->remove($project);
+            $manager->flush();
+            $this->addFlash(
+                'info',
+                'project supprimée avec succes!'
+            );
+            return $this ->redirectToRoute('projects');
+        }else
+        {
+            $this->addFlash(
+                $utils->messageObjetNotFound()[0],
+                $utils->messageObjetNotFound()[1]
+            );
+            return $this->redirectToRoute('projects');
+        }
     }
 
     /**
     * @Route("view/projects", name ="view_projects")
     */
-    public function viewProjects(Request $request, BiceaAdminRepository $biceaAdminRepository,ProjectRepository $projectRepository )
+
+    public function viewProjects(Request $request, BiceaAdminRepository $biceaAdminRepository,
+                                 ProjectRepository $projectRepository, Utils $utils )
     {
-
-        $adminCurrent = $request->getSession()->get('administrator');
-        if ($adminCurrent != null){
-            $admin_id = $biceaAdminRepository->find($adminCurrent->getId());
-            $projects = $projectRepository->findBy( array('BiceaAdmin' => $admin_id->getId()));
-        }else{
-            $userCurrent = $request->getSession()->get('user');
-            if ($userCurrent != null){
-                $idAdmin = $userCurrent->getBiceaAdmin();
-                $projects = $projectRepository->findBy( array('BiceaAdmin' => $idAdmin->getId()));
-            }
-        }
-
+        $admin = $utils->getAdmin($request,$biceaAdminRepository);
 
         return $this->render('project/project_view.html.twig', [
-            'projects' => $projects
+            'projects' => $projectRepository->findBy( array('BiceaAdmin' => $admin->getId()))
         ]);
     }
 
@@ -128,12 +130,12 @@ class ProjectController extends AbstractController
      */
 
     public function taskParameter($id,Request $request, PrTaskRepository $prTaskRepository,
-                      ProjectRepository $projectRepository, BiceaAdminRepository $biceaAdminRepository)
+                      Utils $utils, BiceaAdminRepository $biceaAdminRepository)
     {
-        $admin_id = $biceaAdminRepository->find($request->getSession()->get('administrator')->getId());
-        $tasks = $prTaskRepository->findBy(array('Project'=> $id , 'BiceaAdmin' => $admin_id->getId()));
+        $admin = $utils->getAdmin($request,$biceaAdminRepository);
+
         return $this->render('project/tasks_parameters.html.twig', [
-            'tasks' => $tasks
+            'tasks' => $prTaskRepository->findBy(array('Project'=> $id , 'BiceaAdmin' => $admin->getId()))
         ]);
 
     }

@@ -6,6 +6,7 @@ use App\Entity\RhFunction;
 use App\Form\RhFunctionType;
 use App\Repository\BiceaAdminRepository;
 use App\Repository\RhFunctionRepository;
+use App\Service\Utils;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,17 +18,17 @@ class RhFunctionController extends AbstractController
      * @Route("/new/function", name="functions")
      */
     public function function(Request $request, ObjectManager $manager, RhFunctionRepository $repository,
-            BiceaAdminRepository $biceaAdminRepository)
+            BiceaAdminRepository $biceaAdminRepository, Utils $utils)
     {
         $function = new RhFunction();
 
         $form = $this->createForm(RhFunctionType::class, $function);
         $form->handleRequest($request);
 
+        $admin = $utils->getAdmin($request,$biceaAdminRepository);
+
         if($form ->isSubmitted() && $form->isValid()){
             $function->setCreatedAt(new \DateTime('now') );
-            $adminCurrent = $request->getSession()->get('administrator')->getId();
-            $admin = $biceaAdminRepository->find($adminCurrent);
             $function->setBiceaAdmin($admin);
             $manager->persist($function);
             $manager->flush();
@@ -36,7 +37,6 @@ class RhFunctionController extends AbstractController
                 'Fonction enregistrée avec succes!'
             );
             return $this->redirectToRoute('functions');
-
         }
 
 
@@ -52,39 +52,60 @@ class RhFunctionController extends AbstractController
     /**
      * @Route("/edit/function/{id}", name ="edit_function")
      */
-    public function edit_fonction($id, RhFunctionRepository $repository, Request $request, ObjectManager $manager){
-        $fonction = $repository->find($id);
-        $form = $this->createForm(RhFunctionType::class,$fonction);
-        if($request->isMethod('POST'))
-        {
-            $form->handleRequest($request);
-            if($form->isValid())
+    public function edit_function($id, RhFunctionRepository $repository, Request $request, ObjectManager $manager, Utils $utils){
+        $function = $repository->find($id);
+        if ($function != null) {
+            $form = $this->createForm(RhFunctionType::class,$function);
+            if($request->isMethod('POST'))
             {
-                $manager->flush();
-                $this->addFlash(
-                    'info',
-                    'Fonction modifiée avec succes!'
-                );
-                return $this->redirectToRoute('functions');
+                $form->handleRequest($request);
+                if($form->isValid())
+                {
+                    $manager->flush();
+                    $this->addFlash(
+                        'info',
+                        'Fonction modifiée avec succes!'
+                    );
+                    return $this->redirectToRoute('functions');
+                }
             }
+            return $this ->render('rh_function/edit_function.html.twig',[
+                'fonction'=>$function,
+                'form' =>$form->createView()
+            ]);
+        }else{
+            $this->addFlash(
+                $utils->messageObjetNotFound()[0],
+                $utils->messageObjetNotFound()[1]
+            );
+            return $this->redirectToRoute('functions');
         }
-        return $this ->render('rh_function/edit_function.html.twig',[
-            'fonction'=>$fonction,
-            'form' =>$form->createView()
-        ]);
+
+
     }
 
     /**
      * @Route("/delete/function/{id}", name ="delete_function")
      */
-    public function delete_fonction($id, RhFunctionRepository $repository, ObjectManager $manager){
-        $fonction = $repository->find($id);
-        $manager->remove($fonction);
-        $manager->flush();
-        $this->addFlash(
-            'info',
-            'Fonction supprimée avec succes!'
-        );
-        return $this ->redirectToRoute('functions');
+    public function delete_fonction($id, RhFunctionRepository $repository, ObjectManager $manager, Utils $utils){
+        $function = $repository->find($id);
+        if ($function != null){
+            $manager->remove($function);
+            $manager->flush();
+            $this->addFlash(
+                'info',
+                'Fonction supprimée avec succes!'
+            );
+            return $this ->redirectToRoute('functions');
+        }else{
+            $this->addFlash(
+                $utils->messageObjetNotFound()[0],
+                $utils->messageObjetNotFound()[1]
+            );
+            return $this->redirectToRoute('functions');
+        }
+
     }
 }
+
+

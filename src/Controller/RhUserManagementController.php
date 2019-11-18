@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Repository\BiceaAdminRepository;
 use App\Repository\RhUserRepository;
+use App\Service\Utils;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,14 +16,13 @@ class RhUserManagementController extends AbstractController
      * @Route("/rh/user/management", name="rhUserManagement")
      */
     public function RhUserManagement(Request $request, RhUserRepository $rhUserRepository,
-                                     BiceaAdminRepository $biceaAdminRepository)
+                                     BiceaAdminRepository $biceaAdminRepository, Utils $utils)
     {
         //get the admin curent
-        $adminCurrent = $biceaAdminRepository->find($request->getSession()->get('administrator')->getId());
-
+        $admin = $utils->getAdmin($request,$biceaAdminRepository);
 
         return $this->render('rh_user_management/rh_user_management.html.twig', [
-            'RhUsers' => $rhUserRepository->findBy( array('BiceaAdmin' => $adminCurrent->getId())),
+            'RhUsers' => $rhUserRepository->findBy( array('BiceaAdmin' => $admin->getId())),
         ]);
     }
 

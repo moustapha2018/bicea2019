@@ -24,9 +24,10 @@ class RhUserController extends AbstractController
         $user = new RhUser();
 
         //get the admin curent
-        $adminCurrent = $adminRepository->find($request->getSession()->get('administrator')->getId());
 
-        $form = $this->createForm(RhUserType::class, $user, array('idAdmin' => $adminCurrent->getId()));
+        $admin = $utils->getAdmin($request,$adminRepository);
+
+        $form = $this->createForm(RhUserType::class, $user, array('idAdmin' => $admin->getId()));
         $form->handleRequest($request);
 
         if($form ->isSubmitted() && $form->isValid()){
@@ -48,7 +49,7 @@ class RhUserController extends AbstractController
             $filePassport->move($this->getParameter('upload_directory'), $fileNamePassport);
             $user->setPassport($fileNamePassport);
 
-            $new_directory = $utils->searchReplace($adminCurrent->getLoginCompany().'-'.$user->getLoginUser(), $this->getParameter( 'upload_directory'));
+            $new_directory = $utils->searchReplace($admin->getLoginCompany().'-'.$user->getLoginUser(), $this->getParameter( 'upload_directory'));
 
             if($filesystem->exists($new_directory)){
                 $filesystem->remove([$this->getParameter( 'upload_directory')]);
@@ -59,7 +60,7 @@ class RhUserController extends AbstractController
 
                 $filesystem->rename($this->getParameter( 'upload_directory'), $new_directory);
 
-                $user->setBiceaAdmin($adminCurrent);
+                $user->setBiceaAdmin($admin);
                 $user->setCreatedAt(new \DateTime('now') );
                 $user->setIsActive(0);
                 $user->setIsAccountant(0);
@@ -82,7 +83,7 @@ class RhUserController extends AbstractController
         }
 
         return $this->render('rh_user/user.html.twig', [
-            'users' => $repository->findBy( array('BiceaAdmin' => $adminCurrent->getId())),
+            'users' => $repository->findBy( array('BiceaAdmin' => $admin->getId())),
             'form' => $form->createView()
         ]);
     }
@@ -94,107 +95,123 @@ class RhUserController extends AbstractController
                               BiceaAdminRepository $adminRepository, Utils $utils)
     {
         $user = $repository->find($id);
+        if ($user != null){
+            $admin = $utils->getAdmin($request,$adminRepository);
+            $lastDossier = strtolower($admin->getLoginCompany().'-'.$user->getLoginUser());
 
-        $adminCurrent = $request->getSession()->get('administrator')->getId();
-        $admin = $adminRepository->find($adminCurrent);
-        $lastDossier = strtolower($admin->getLoginCompany().'-'.$user->getLoginUser());
+            $form = $this->createForm(RhUserType::class, $user, array('idAdmin' =>$admin->getId() ));
 
-        //get the admin curent
-        $adminCurrent = $adminRepository->find($request->getSession()->get('administrator')->getId());
-
-        $form = $this->createForm(RhUserType::class, $user, array('idAdmin' =>$adminCurrent->getId() ));
-
-        if($request->isMethod('POST'))
-        {
-            $form->handleRequest($request);
-            if($form->isValid())
+            if($request->isMethod('POST'))
             {
-                $filesystem = new Filesystem();
+                $form->handleRequest($request);
+                if($form->isValid())
+                {
+                    $filesystem = new Filesystem();
 
-                $filesystem->remove(['uploads/'.$lastDossier]);
+                    $filesystem->remove(['uploads/'.$lastDossier]);
 
-                $fileContract = $user->getContract();
-                $fileNameContract = md5(uniqid()).'.'.$fileContract->guessExtension();
-                $fileContract->move($this->getParameter('upload_directory'), $fileNameContract);
-                $user->setContract($fileNameContract);
+                    $fileContract = $user->getContract();
+                    $fileNameContract = md5(uniqid()).'.'.$fileContract->guessExtension();
+                    $fileContract->move($this->getParameter('upload_directory'), $fileNameContract);
+                    $user->setContract($fileNameContract);
 
-                $filePhoto = $user->getPhoto();
-                $fileNamePhoto = md5(uniqid()).'.'.$filePhoto->guessExtension();
-                $filePhoto->move($this->getParameter('upload_directory'), $fileNamePhoto);
-                $user->setPhoto($fileNamePhoto);
+                    $filePhoto = $user->getPhoto();
+                    $fileNamePhoto = md5(uniqid()).'.'.$filePhoto->guessExtension();
+                    $filePhoto->move($this->getParameter('upload_directory'), $fileNamePhoto);
+                    $user->setPhoto($fileNamePhoto);
 
-                $filePassport= $user->getPassport();
-                $fileNamePassport = md5(uniqid()).'.'.$filePassport->guessExtension();
-                $filePassport->move($this->getParameter('upload_directory'), $fileNamePassport);
-                $user->setPassport($fileNamePassport);
+                    $filePassport= $user->getPassport();
+                    $fileNamePassport = md5(uniqid()).'.'.$filePassport->guessExtension();
+                    $filePassport->move($this->getParameter('upload_directory'), $fileNamePassport);
+                    $user->setPassport($fileNamePassport);
 
 
 
-                $new_directory = $utils->searchReplace($admin->getLoginCompany().'-'.$user->getLoginUser(), $this->getParameter( 'upload_directory'));
+                    $new_directory = $utils->searchReplace($admin->getLoginCompany().'-'.$user->getLoginUser(), $this->getParameter( 'upload_directory'));
 
-                if($filesystem->exists($new_directory)){
-                    $filesystem->remove([$this->getParameter( 'upload_directory')]);
-                    $this->addFlash("error", "Ce colaborateur a dejà un dossier ou cet identifiant existe déjà");
-                    return $this->redirectToRoute('users');
+                    if($filesystem->exists($new_directory)){
+                        $filesystem->remove([$this->getParameter( 'upload_directory')]);
+                        $this->addFlash("error", "Ce colaborateur a dejà un dossier ou cet identifiant existe déjà");
+                        return $this->redirectToRoute('users');
 
-                }else{
+                    }else{
 
-                    $filesystem->rename($this->getParameter( 'upload_directory'), $new_directory);
+                        $filesystem->rename($this->getParameter( 'upload_directory'), $new_directory);
 
-                    $admin = $adminRepository->find($request->getSession()->get('administrator')->getId());
-                    $user->setBiceaAdmin($admin);
-                    $manager->flush();
-                    $this->addFlash(
-                        'success',
-                        'Modifications avec succes!'
-                    );
-                    return $this->redirectToRoute('users');
+                        $admin = $adminRepository->find($request->getSession()->get('administrator')->getId());
+                        $user->setBiceaAdmin($admin);
+                        $manager->flush();
+                        $this->addFlash(
+                            'success',
+                            'Modifications avec succes!'
+                        );
+                        return $this->redirectToRoute('users');
+                    }
                 }
             }
+
+
+            return $this->render('rh_user/edit_user.html.twig', [
+                'form' => $form->createView(),
+                'user' => $user
+            ]);
+
+        }else{
+            $this->addFlash(
+                $utils->messageObjetNotFound()[0],
+                $utils->messageObjetNotFound()[1]
+            );
+            return $this->redirectToRoute('users');
         }
-
-
-        return $this->render('rh_user/edit_user.html.twig', [
-            'form' => $form->createView(),
-            'user' => $user
-        ]);
-
-
     }
 
     /**
      * @Route("/view/{id}", name ="view_user")
      */
-    public function view_user($id, RhUserRepository $repository){
+    public function view_user($id, RhUserRepository $repository, Utils $utils){
 
         $user = $repository->find($id);
+        if ($user != null){
+            return $this->render('rh_user/view_user.html.twig', [
+                'user' => $user
+            ]);
 
-
-        return $this->render('rh_user/view_user.html.twig', [
-            'user' => $user
-        ]);
+        }else{
+            $this->addFlash(
+                $utils->messageObjetNotFound()[0],
+                $utils->messageObjetNotFound()[1]
+            );
+            return $this->redirectToRoute('users');
+        }
     }
+
     /**
      * @Route("/delete_user/{id}", name ="delete_user")
      */
-    public function delete_user($id, RhUserRepository $repository, ObjectManager $manager){
+    public function delete_user($id, RhUserRepository $repository, ObjectManager $manager, Utils $utils){
 
         $user = $repository->find($id);
         $filesystem = new Filesystem();
+        if ($user != null){
+            $nonDossier = $user->getLoginUser();
+            $filesystem->remove(['uploads/'.$nonDossier]);
 
-        $nonDossier = $user->getLoginUser();
-        $filesystem->remove(['uploads/'.$nonDossier]);
+            $manager->remove($user);
+            $manager->flush();
+            $this->addFlash(
+                'info',
+                'Utilisateur supprimé avec succes!'
+            );
 
-        $manager->remove($user);
-        $manager->flush();
-        $this->addFlash(
-            'info',
-            'Utilisateur supprimé avec succes!'
-        );
+            return $this ->redirectToRoute('users');
 
-        return $this ->redirectToRoute('users');
-
-
+        }else{
+            $this->addFlash(
+                $utils->messageObjetNotFound()[0],
+                $utils->messageObjetNotFound()[1]
+            );
+            return $this->redirectToRoute('users');
+        }
     }
 
 }

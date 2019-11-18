@@ -7,6 +7,7 @@ use App\Form\PrTaskType;
 use App\Repository\BiceaAdminRepository;
 use App\Repository\ProjectRepository;
 use App\Repository\PrTaskRepository;
+use App\Service\Utils;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,33 +19,16 @@ class PrTaskController extends AbstractController
      * @Route("/pr/task", name="tasks")
      */
     public function task( Request $request,  ObjectManager $manager, PrTaskRepository $repository,
-                          BiceaAdminRepository $biceaAdminRepository)
+                          BiceaAdminRepository $biceaAdminRepository, Utils $utils)
     {
         $task = new PrTask();
-
         //get admin current
-        $adminCurrent = $request->getSession()->get('administrator')->getId();
-        if ($adminCurrent != Null){
-            $admin = $biceaAdminRepository->find($adminCurrent);
-        }else{
-            $userCurrent = $request->getSession()->get('user');
-            $BiceaAdmin = $userCurrent->getBiceaAdmin();
-            $admin = $biceaAdminRepository->fin($BiceaAdmin);
-        }
+        $admin = $utils->getAdmin($request,$biceaAdminRepository);
 
         $form = $this->createForm(PrTaskType::class, $task, array('idAdmin' => $admin->getId()));
         $form->handleRequest($request);
 
         if($form ->isSubmitted() && $form->isValid()){
-
-            //get admin current
-            $adminCurrent = $request->getSession()->get('administrator')->getId();
-            if ($adminCurrent != Null){
-                $admin = $biceaAdminRepository->find($adminCurrent);
-            }else{
-                $admin_idUser = $request->getSession()->get('user')->getBiceaAdmin();
-                $admin = $biceaAdminRepository->fin($admin_idUser);
-            }
             $task->setBiceaAdmin($admin);
             $task->setCreatedAt(new \DateTime('now') );
             $task->setIsDoing(0);
@@ -56,57 +40,71 @@ class PrTaskController extends AbstractController
                 'Taches enregistrée avec succes!'
             );
             return $this->redirectToRoute('tasks');
-
         }
-
-
-        $admin_id = $biceaAdminRepository->find($request->getSession()->get('administrator')->getId());
-        $tasks = $repository->findBy( array('BiceaAdmin' => $admin_id->getId()));
-
         return $this->render('pr_task/pr_task.html.twig', [
             'form' => $form->createView(),
-            'tasks' => $tasks
+            'tasks' => $repository->findBy( array('BiceaAdmin' => $admin->getId()))
         ]);
     }
 
     /**
      * @Route("/edit/pr/task/{id}", name ="edit_pr_task")
      */
-    public function edit_project($id, PrTaskRepository $repository, Request $request, ObjectManager $manager){
+    public function edit_project($id, PrTaskRepository $repository, Request $request,
+                                 ObjectManager $manager, Utils $utils){
         $task = $repository->find($id);
-        $form = $this->createForm(PrTaskType::class,$task);
-        if($request->isMethod('POST'))
-        {
-            $form->handleRequest($request);
-            if($form->isValid())
+        if ($task != null){
+            $form = $this->createForm(PrTaskType::class,$task);
+            if($request->isMethod('POST'))
             {
-                $manager->flush();
-                $this->addFlash(
-                    'info',
-                    'Tâche modifiée avec succes!'
-                );
-                return $this->redirectToRoute('tasks');
+                $form->handleRequest($request);
+                if($form->isValid())
+                {
+                    $manager->flush();
+                    $this->addFlash(
+                        'info',
+                        'Tâche modifiée avec succes!'
+                    );
+                    return $this->redirectToRoute('tasks');
+                }
             }
+            return $this ->render('pr_task/edit_pr_task.html.twig',[
+                'task'=>$task,
+                'form' =>$form->createView()
+            ]);
+        }else{
+            $this->addFlash(
+                $utils->messageObjetNotFound()[0],
+                $utils->messageObjetNotFound()[1]
+            );
+            return $this->redirectToRoute('tasks');
         }
-        return $this ->render('pr_task/edit_pr_task.html.twig',[
-            'task'=>$task,
-            'form' =>$form->createView()
-        ]);
     }
 
     /**
      * @Route("/delete/pr/task/{id}", name ="delete_pr_task")
      */
-    public function delete_project($id, PrTaskRepository $repository, ObjectManager $manager){
+    public function delete_project($id, PrTaskRepository $repository, ObjectManager $manager, Utils $utils){
         $task = $repository->find($id);
-        $manager->remove($task);
-        $manager->flush();
-        $this->addFlash(
-            'info',
-            'tache supprimée avec succes!'
-        );
-        return $this ->redirectToRoute('projects');
+        if ($task != null){
+            $manager->remove($task);
+            $manager->flush();
+            $this->addFlash(
+                'info',
+                'tache supprimée avec succes!'
+            );
+            return $this ->redirectToRoute('tasks');
+        }else
+        {
+            $this->addFlash(
+                $utils->messageObjetNotFound()[0],
+                $utils->messageObjetNotFound()[1]
+            );
+            return $this->redirectToRoute('tasks');
+        }
+
     }
+
 
     /**
      * @Route("start/task/{id}", name ="startTask")
