@@ -2,14 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab4cc2a0-4ee8-42e2-9659-af5e0c9d26c5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Form/RhContractType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/rh_contract/edit_rh_contract.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/rh_contract/rh_contract.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/BiceaAdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BiceaAdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PrTaskController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PrTaskController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ProjectController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProjectController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RhFunctionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RhFunctionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RhUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RhUserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RhUserManagementController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RhUserManagementController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Utils.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Utils.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/BiceaAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/BiceaAdmin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/RhUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/RhUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/PrTaskType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/PrTaskType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/configuration/left.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/configuration/left.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,41 +23,34 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/RhFunctionController.php">
+        <entry file="file://$PROJECT_DIR$/src/Controller/RhContractController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="106" selection-start-line="91" selection-start-column="8" selection-end-line="106" />
+            <state relative-caret-position="490">
+              <caret line="101" column="55" selection-start-line="101" selection-start-column="55" selection-end-line="101" selection-end-column="55" />
               <folding>
                 <element signature="e#34#60#0#PHP" expanded="true" />
-                <element signature="e#1989#2051#0#PHP" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Service/Utils.php">
+        <entry file="file://$PROJECT_DIR$/src/Controller/RhFunctionController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="37" column="22" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
+            <state relative-caret-position="548">
+              <caret line="107" column="5" selection-start-line="86" selection-start-column="4" selection-end-line="107" selection-end-column="5" />
+              <folding>
+                <element signature="e#34#60#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/BiceaAdminController.php">
+        <entry file="file://$PROJECT_DIR$/src/Form/RhUserType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="776">
-              <caret line="115" column="4" selection-start-line="115" selection-start-column="4" selection-end-line="115" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Controller/RhUserManagementController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+            <state relative-caret-position="128">
+              <caret line="72" column="14" selection-start-line="72" selection-start-column="14" selection-end-line="77" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -66,36 +58,52 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/RhUserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-465">
-              <caret line="166" selection-start-line="166" selection-end-line="166" />
+            <state relative-caret-position="284">
+              <caret line="29" column="95" selection-start-line="29" selection-start-column="59" selection-end-line="29" selection-end-column="95" />
               <folding>
                 <element signature="e#34#56#0#PHP" expanded="true" />
-                <element signature="e#4304#6448#0#PHP" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/ProjectController.php">
+        <entry file="file://$PROJECT_DIR$/templates/rh_contract/rh_contract.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="134" column="66" lean-forward="true" selection-start-line="134" selection-start-column="7" selection-end-line="134" selection-end-column="66" />
-              <folding>
-                <element signature="e#34#60#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="308">
+              <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/PrTaskController.php">
+        <entry file="file://$PROJECT_DIR$/templates/rh_contract/edit_rh_contract.html.twig">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/configuration/left.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="820">
-              <caret line="96" column="13" lean-forward="true" selection-start-line="96" selection-start-column="13" selection-end-line="96" selection-end-column="13" />
-              <folding>
-                <element signature="e#34#56#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="462">
+              <caret line="48" column="20" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.env">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="117">
+              <caret line="17" column="43" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/rh_function/function.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="312">
+              <caret line="15" selection-end-line="54" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -104,7 +112,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Admin</find>
       <find>user</find>
       <find>phone</find>
       <find>App\Entity\humanResources\Admin</find>
@@ -134,6 +141,7 @@
       <find>isProje</find>
       <find>session</find>
       <find>$adminC</find>
+      <find>func</find>
     </findStrings>
     <replaceStrings>
       <replace>Function</replace>
@@ -145,10 +153,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Form/BiceaAdminType.php" />
-        <option value="$PROJECT_DIR$/templates/bicea_admin/reglage.html.twig" />
-        <option value="$PROJECT_DIR$/templates/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/Controller/HomeController.php" />
         <option value="$PROJECT_DIR$/templates/home_user/homeUserBicea.html.twig" />
         <option value="$PROJECT_DIR$/templates/configuration/user_left.html.twig" />
         <option value="$PROJECT_DIR$/templates/configuration/header_user.html.twig" />
@@ -164,7 +168,6 @@
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/src/Entity/Project.php" />
         <option value="$PROJECT_DIR$/templates/project/edit_project.html.twig" />
-        <option value="$PROJECT_DIR$/src/Form/PrTaskType.php" />
         <option value="$PROJECT_DIR$/src/Entity/BiceaAdmin.php" />
         <option value="$PROJECT_DIR$/templates/configuration/admin_left_education.html.twig" />
         <option value="$PROJECT_DIR$/templates/pr_task/edit_pr_task.html.twig" />
@@ -192,10 +195,15 @@
         <option value="$PROJECT_DIR$/src/Service/Utils.php" />
         <option value="$PROJECT_DIR$/src/Controller/PrTaskController.php" />
         <option value="$PROJECT_DIR$/src/Controller/ProjectController.php" />
-        <option value="$PROJECT_DIR$/src/Controller/RhFunctionController.php" />
         <option value="$PROJECT_DIR$/src/Controller/BiceaAdminController.php" />
-        <option value="$PROJECT_DIR$/templates/configuration/left.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/RhUserManagementController.php" />
+        <option value="$PROJECT_DIR$/src/Entity/RhContract.php" />
+        <option value="$PROJECT_DIR$/src/Form/PrTaskType.php" />
+        <option value="$PROJECT_DIR$/src/Form/RhContractType.php" />
+        <option value="$PROJECT_DIR$/src/Controller/RhFunctionController.php" />
+        <option value="$PROJECT_DIR$/src/Controller/RhContractController.php" />
+        <option value="$PROJECT_DIR$/templates/rh_contract/rh_contract.html.twig" />
+        <option value="$PROJECT_DIR$/templates/configuration/left.html.twig" />
       </list>
     </option>
   </component>
@@ -337,19 +345,7 @@
             <path>
               <item name="appbicea" type="b2602c69:ProjectViewProjectNode" />
               <item name="appbicea" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="appbicea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="appbicea" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="appbicea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="appbicea" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="rh_user_management" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -371,19 +367,19 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\toure\Desktop\bicea\appbicea\templates\rh_contract" />
+      <recent name="C:\Users\toure\Desktop\bicea\appbicea\templates\configuration" />
+      <recent name="C:\Users\toure\Desktop\bicea\appbicea\templates\home_user" />
+      <recent name="C:\Users\toure\Desktop\bicea\appbicea\src\Controller" />
+      <recent name="C:\Users\toure\Desktop\bicea\appbicea\templates\rh_function" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\toure\Desktop\bicea\appbicea\templates\project" />
       <recent name="C:\Users\toure\Desktop\bicea\appbicea\templates\rh_user" />
       <recent name="C:\Users\toure\Desktop\bicea\appbicea\src\Repository" />
       <recent name="C:\Users\toure\Desktop\bicea\appbicea\src\Form" />
       <recent name="C:\Users\toure\Desktop\bicea\appbicea\src\Entity" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\toure\Desktop\bicea\appbicea\templates\configuration" />
-      <recent name="C:\Users\toure\Desktop\bicea\appbicea\templates\home_user" />
-      <recent name="C:\Users\toure\Desktop\bicea\appbicea\src\Controller" />
-      <recent name="C:\Users\toure\Desktop\bicea\appbicea\templates\rh_function" />
-      <recent name="C:\Users\toure\Desktop\bicea\appbicea\templates\bicea_admin" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -426,12 +422,12 @@
       <workItem from="1573386471800" duration="8706000" />
       <workItem from="1573400430644" duration="2175000" />
       <workItem from="1573406647141" duration="1191000" />
-      <workItem from="1573990099682" duration="14072000" />
+      <workItem from="1573990099682" duration="22707000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91542000" />
+    <option name="totallyTimeSpent" value="100177000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -524,27 +520,6 @@
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/rh_user/user.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="45" column="55" selection-start-line="45" selection-start-column="46" selection-end-line="45" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="68" column="26" selection-start-line="68" selection-start-column="26" selection-end-line="68" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/configuration/user_left_education.html.twig" />
-    <entry file="file://$PROJECT_DIR$/templates/home_admin/homeBusiness.html.twig">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/home_admin/homeEducation.html.twig">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/home_user/home_user_education.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
@@ -579,38 +554,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Migrations/.gitignore" />
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="30" column="35" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/rh_function/function.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="18" column="21" selection-end-line="54" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/rh_function/edit_function.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret selection-end-line="22" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/RhUserType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="73" column="46" selection-start-line="73" selection-start-column="46" selection-end-line="73" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/PrTaskType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -709,13 +656,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/RhUser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="21" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/BiceaAdmin.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="638">
@@ -781,35 +721,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/RhUserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-465">
-          <caret line="166" selection-start-line="166" selection-end-line="166" />
-          <folding>
-            <element signature="e#34#56#0#PHP" expanded="true" />
-            <element signature="e#4304#6448#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/RhFunctionController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="106" selection-start-line="91" selection-start-column="8" selection-end-line="106" />
-          <folding>
-            <element signature="e#34#60#0#PHP" expanded="true" />
-            <element signature="e#1989#2051#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/configuration/left.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="49" column="18" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/BiceaAdminController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="776">
@@ -817,20 +728,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/PrTaskController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="820">
-          <caret line="96" column="13" lean-forward="true" selection-start-line="96" selection-start-column="13" selection-end-line="96" selection-end-column="13" />
-          <folding>
-            <element signature="e#34#56#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/ProjectController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
-          <caret line="134" column="66" lean-forward="true" selection-start-line="134" selection-start-column="7" selection-end-line="134" selection-end-column="66" />
+          <caret line="134" column="66" selection-start-line="134" selection-start-column="7" selection-end-line="134" selection-end-column="66" />
           <folding>
             <element signature="e#34#60#0#PHP" expanded="true" />
           </folding>
@@ -839,8 +740,120 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/RhUserManagementController.php">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/RhContract.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="58" selection-start-line="58" selection-end-line="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/RhUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1606">
+          <caret line="2" column="21" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/rh_function/function.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="15" selection-end-line="54" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/PrTaskType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="40" column="18" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
+          <folding>
+            <element signature="e#28#54#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/PrTaskController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1141">
+          <caret line="96" column="13" selection-start-line="96" selection-start-column="13" selection-end-line="96" selection-end-column="13" />
+          <folding>
+            <element signature="e#34#56#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/RhUserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="29" column="95" selection-start-line="29" selection-start-column="59" selection-end-line="29" selection-end-column="95" />
+          <folding>
+            <element signature="e#34#56#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/RhUserType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="72" column="14" selection-start-line="72" selection-start-column="14" selection-end-line="77" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/RhContractType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
+          <folding>
+            <element signature="e#28#54#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/rh_contract/edit_rh_contract.html.twig">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/RhFunctionController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="548">
+          <caret line="107" column="5" selection-start-line="86" selection-start-column="4" selection-end-line="107" selection-end-column="5" />
+          <folding>
+            <element signature="e#34#60#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/RhContractController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="490">
+          <caret line="101" column="55" selection-start-line="101" selection-start-column="55" selection-end-line="101" selection-end-column="55" />
+          <folding>
+            <element signature="e#34#60#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/rh_contract/rh_contract.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="17" column="43" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/configuration/left.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
-          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+          <caret line="48" column="20" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
         </state>
       </provider>
     </entry>

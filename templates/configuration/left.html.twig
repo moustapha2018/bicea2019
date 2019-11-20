@@ -44,12 +44,13 @@
                     <i class="fa fa-files-o"></i>
                     <span>Ressources humaines</span>
                     <span class="pull-right-container">
-              <span class="label label-primary pull-right">3</span>
+              <span class="label label-primary pull-right">4</span>
             </span>
                 </a>
                 <ul class="treeview-menu">
                     <li><a href=" {{path('functions') }}"><i class="fa fa-circle-o"></i> Fonctions</a></li>
                     <li><a href="{{ path('users') }} "><i class="fa fa-circle-o"></i> Collaborateurs</a></li>
+                    <li><a href="{{ path('rh_contracts') }} "><i class="fa fa-circle-o"></i> Contrats</a></li>
                     <li><a href="{{ path('rhUserManagement') }} "><i class="fa fa-circle-o"></i> Gestion Personnels</a></li>
                 </ul>
             </li>
@@ -91,8 +92,9 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ path('functions') }}"><i class="fa fa-circle-o"></i> Regler Fournisseur</a></li>
-                    <li><a href="{{ path('users') }}"><i class="fa fa-circle-o"></i> Payer Frais</a></li>
+                    <li><a href="{{ path('functions') }}"><i class="fa fa-circle-o"></i> Regler les employés</a></li>
+                    <li><a href="{{ path('users') }}"><i class="fa fa-circle-o"></i> Régler Les fournisseurs</a></li>
+                    <li><a href="{{ path('users') }}"><i class="fa fa-circle-o"></i> Régler Autres Frais</a></li>
                 </ul>
             </li>
             {% endif %}

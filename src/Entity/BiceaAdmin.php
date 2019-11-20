@@ -119,6 +119,11 @@ class BiceaAdmin
      */
     private $prTasks;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\RhContract", mappedBy="BiceaAdmin")
+     */
+    private $rhContracts;
+
 
     public function __construct()
     {
@@ -126,6 +131,7 @@ class BiceaAdmin
         $this->rhUsers = new ArrayCollection();
         $this->projects = new ArrayCollection();
         $this->prTasks = new ArrayCollection();
+        $this->rhContracts = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -396,6 +402,37 @@ class BiceaAdmin
             // set the owning side to null (unless already changed)
             if ($prTask->getBiceaAdmin() === $this) {
                 $prTask->setBiceaAdmin(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|RhContract[]
+     */
+    public function getRhContracts(): Collection
+    {
+        return $this->rhContracts;
+    }
+
+    public function addRhContract(RhContract $rhContract): self
+    {
+        if (!$this->rhContracts->contains($rhContract)) {
+            $this->rhContracts[] = $rhContract;
+            $rhContract->setBiceaAdmin($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRhContract(RhContract $rhContract): self
+    {
+        if ($this->rhContracts->contains($rhContract)) {
+            $this->rhContracts->removeElement($rhContract);
+            // set the owning side to null (unless already changed)
+            if ($rhContract->getBiceaAdmin() === $this) {
+                $rhContract->setBiceaAdmin(null);
             }
         }
 

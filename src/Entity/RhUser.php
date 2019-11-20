@@ -144,6 +144,11 @@ class RhUser
      */
     private $isOperation;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\RhContract", mappedBy="RhUser")
+     */
+    private $rhContracts;
+
 
 
 
@@ -154,6 +159,7 @@ class RhUser
         $this->rhFileUsers = new ArrayCollection();
         //$this->projects = new ArrayCollection();
         $this->prTasks = new ArrayCollection();
+        $this->rhContracts = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -440,6 +446,37 @@ class RhUser
     public function setIsOperation(bool $isOperation): self
     {
         $this->isOperation = $isOperation;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|RhContract[]
+     */
+    public function getRhContracts(): Collection
+    {
+        return $this->rhContracts;
+    }
+
+    public function addRhContract(RhContract $rhContract): self
+    {
+        if (!$this->rhContracts->contains($rhContract)) {
+            $this->rhContracts[] = $rhContract;
+            $rhContract->setRhUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRhContract(RhContract $rhContract): self
+    {
+        if ($this->rhContracts->contains($rhContract)) {
+            $this->rhContracts->removeElement($rhContract);
+            // set the owning side to null (unless already changed)
+            if ($rhContract->getRhUser() === $this) {
+                $rhContract->setRhUser(null);
+            }
+        }
 
         return $this;
     }
