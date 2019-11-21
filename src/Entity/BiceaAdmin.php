@@ -124,6 +124,16 @@ class BiceaAdmin
      */
     private $rhContracts;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\BuCustomer", mappedBy="BiceaAdmin")
+     */
+    private $buCustomers;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\BuSupplier", mappedBy="BiceaAdmin")
+     */
+    private $buSuppliers;
+
 
     public function __construct()
     {
@@ -132,6 +142,8 @@ class BiceaAdmin
         $this->projects = new ArrayCollection();
         $this->prTasks = new ArrayCollection();
         $this->rhContracts = new ArrayCollection();
+        $this->buCustomers = new ArrayCollection();
+        $this->buSuppliers = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -433,6 +445,68 @@ class BiceaAdmin
             // set the owning side to null (unless already changed)
             if ($rhContract->getBiceaAdmin() === $this) {
                 $rhContract->setBiceaAdmin(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|BuCustomer[]
+     */
+    public function getBuCustomers(): Collection
+    {
+        return $this->buCustomers;
+    }
+
+    public function addBuCustomer(BuCustomer $buCustomer): self
+    {
+        if (!$this->buCustomers->contains($buCustomer)) {
+            $this->buCustomers[] = $buCustomer;
+            $buCustomer->setBiceaAdmin($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBuCustomer(BuCustomer $buCustomer): self
+    {
+        if ($this->buCustomers->contains($buCustomer)) {
+            $this->buCustomers->removeElement($buCustomer);
+            // set the owning side to null (unless already changed)
+            if ($buCustomer->getBiceaAdmin() === $this) {
+                $buCustomer->setBiceaAdmin(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|BuSupplier[]
+     */
+    public function getBuSuppliers(): Collection
+    {
+        return $this->buSuppliers;
+    }
+
+    public function addBuSupplier(BuSupplier $buSupplier): self
+    {
+        if (!$this->buSuppliers->contains($buSupplier)) {
+            $this->buSuppliers[] = $buSupplier;
+            $buSupplier->setBiceaAdmin($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBuSupplier(BuSupplier $buSupplier): self
+    {
+        if ($this->buSuppliers->contains($buSupplier)) {
+            $this->buSuppliers->removeElement($buSupplier);
+            // set the owning side to null (unless already changed)
+            if ($buSupplier->getBiceaAdmin() === $this) {
+                $buSupplier->setBiceaAdmin(null);
             }
         }
 

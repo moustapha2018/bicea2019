@@ -56,8 +56,6 @@ class LoginController extends AbstractController
 
                     $session = $request->getSession();
                     $session->set('user', $user);
-                    //var_dump($user['society']['idAdminSociety']);
-                    //var_dump($user[['id']]);
                     return $this->redirectToRoute('homePageUser');
                 }
 
@@ -96,10 +94,7 @@ class LoginController extends AbstractController
 
                 return $this->redirectToRoute("login");
             }
-
-
         }
-
         return $this->render('index.html.twig');
     }
 
