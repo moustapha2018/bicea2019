@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab4cc2a0-4ee8-42e2-9659-af5e0c9d26c5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/bu_customer/bu_customer.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/bu_customer/edit_bu_customer.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/bu_supplier/bu_supplier.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/bu_supplier/edit_bu_supplier.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/bu_article/bu_article.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/bu_article/edit_bu_article.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/bu_category/bu_category.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/bu_category/edit_bu_category.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/LoginController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/BiceaAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/BiceaAdmin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/configuration/left.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/configuration/left.html.twig" afterDir="false" />
     </list>
@@ -19,109 +18,9 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/bu_customer/edit_bu_customer.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="14" column="77" selection-start-line="14" selection-start-column="77" selection-end-line="14" selection-end-column="77" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Form/BuCustomerType.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="21" column="72" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="72" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Form/BuSupplierType.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Controller/BuSupplierController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="71" column="45" selection-start-line="71" selection-start-column="45" selection-end-line="71" selection-end-column="45" />
-              <folding>
-                <element signature="e#34#60#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/bu_supplier/edit_bu_supplier.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="14" column="82" selection-start-line="14" selection-start-column="82" selection-end-line="14" selection-end-column="82" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/configuration/left.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="145" column="52" selection-start-line="145" selection-start-column="52" selection-end-line="145" selection-end-column="52" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/BuCustomerController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="109" column="5" selection-start-line="86" selection-start-column="3" selection-end-line="109" selection-end-column="5" />
-              <folding>
-                <element signature="e#34#60#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/bu_supplier/bu_supplier.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="38" column="64" selection-start-line="38" selection-start-column="64" selection-end-line="38" selection-end-column="64" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/RhFunctionController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="569">
-              <caret line="107" column="5" selection-start-line="86" selection-start-column="3" selection-end-line="107" selection-end-column="5" />
-              <folding>
-                <element signature="e#34#60#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/bu_customer/bu_customer.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="37" column="39" selection-end-line="52" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <execution>
+      <executable />
+    </execution>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -162,63 +61,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/templates/project/project.html.twig" />
-        <option value="$PROJECT_DIR$/src/Form/ProjectType.php" />
-        <option value="$PROJECT_DIR$/src/Entity/PrTask.php" />
-        <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/src/Entity/Project.php" />
-        <option value="$PROJECT_DIR$/templates/project/edit_project.html.twig" />
-        <option value="$PROJECT_DIR$/src/Entity/BiceaAdmin.php" />
-        <option value="$PROJECT_DIR$/templates/configuration/admin_left_education.html.twig" />
-        <option value="$PROJECT_DIR$/templates/pr_task/edit_pr_task.html.twig" />
-        <option value="$PROJECT_DIR$/templates/pr_task/pr_task.html.twig" />
-        <option value="$PROJECT_DIR$/templates/pr_task/tasks_parameters.html.twig" />
-        <option value="$PROJECT_DIR$/templates/project/project_tasks_view.html.twig" />
-        <option value="$PROJECT_DIR$/templates/project/project_view.html.twig" />
-        <option value="$PROJECT_DIR$/templates/configuration/admin_left_business.html.twig" />
-        <option value="$PROJECT_DIR$/templates/project/tasks_parameters.html.twig" />
-        <option value="$PROJECT_DIR$/src/Controller/BiceaReglageController.php" />
-        <option value="$PROJECT_DIR$/templates/configuration/user_header.html.twig" />
-        <option value="$PROJECT_DIR$/templates/configuration/user_left_bicea.html.twig" />
-        <option value="$PROJECT_DIR$/templates/home_user/home_user_bicea.html.twig" />
-        <option value="$PROJECT_DIR$/src/Controller/HomeUserController.php" />
-        <option value="$PROJECT_DIR$/templates/configuration/admin_header.html.twig" />
-        <option value="$PROJECT_DIR$/templates/configuration/header.html.twig" />
-        <option value="$PROJECT_DIR$/src/Controller/HomeAdminController.php" />
-        <option value="$PROJECT_DIR$/templates/configuration/admin_left_bicea.html.twig" />
-        <option value="$PROJECT_DIR$/templates/template.html.twig" />
-        <option value="$PROJECT_DIR$/src/Entity/RhUser.php" />
-        <option value="$PROJECT_DIR$/templates/home_user/home_user_business.html.twig" />
-        <option value="$PROJECT_DIR$/templates/rh_user_management/rh_user_management.html.twig" />
-        <option value="$PROJECT_DIR$/src/Controller/RhUserController.php" />
-        <option value="$PROJECT_DIR$/src/Service/Utils.php" />
-        <option value="$PROJECT_DIR$/src/Controller/PrTaskController.php" />
-        <option value="$PROJECT_DIR$/src/Controller/ProjectController.php" />
-        <option value="$PROJECT_DIR$/src/Controller/BiceaAdminController.php" />
-        <option value="$PROJECT_DIR$/src/Controller/RhUserManagementController.php" />
-        <option value="$PROJECT_DIR$/src/Entity/RhContract.php" />
-        <option value="$PROJECT_DIR$/src/Form/PrTaskType.php" />
-        <option value="$PROJECT_DIR$/src/Form/RhContractType.php" />
-        <option value="$PROJECT_DIR$/src/Controller/RhFunctionController.php" />
-        <option value="$PROJECT_DIR$/src/Controller/RhContractController.php" />
-        <option value="$PROJECT_DIR$/templates/rh_contract/rh_contract.html.twig" />
-        <option value="$PROJECT_DIR$/templates/bu_customer/bu_customer/bu_customer.html.twig" />
-        <option value="$PROJECT_DIR$/templates/bu_customer/edit_bu_customer.html.twig" />
-        <option value="$PROJECT_DIR$/templates/bu_customer/bu_customer.html.twig" />
-        <option value="$PROJECT_DIR$/src/Form/BuCustomerType.php" />
-        <option value="$PROJECT_DIR$/src/Controller/BuCustomerController.php" />
-        <option value="$PROJECT_DIR$/src/Controller/LoginController.php" />
-        <option value="$PROJECT_DIR$/templates/configuration/left.html.twig" />
-        <option value="$PROJECT_DIR$/src/Form/BuSupplierType.php" />
-        <option value="$PROJECT_DIR$/templates/bu_supplier/edit_bu_supplier.html.twig" />
-        <option value="$PROJECT_DIR$/templates/bu_supplier/bu_supplier.html.twig" />
-        <option value="$PROJECT_DIR$/src/Controller/BuSupplierController.php" />
-      </list>
-    </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -330,81 +172,10 @@
       <path value="$PROJECT_DIR$/vendor/twig/extensions" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="y" value="-10" />
-    <option name="width" value="1940" />
-    <option name="height" value="1100" />
-  </component>
   <component name="ProjectId" id="1TQltHUdKKn7eR6xYRnl4ZeVX1n" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="appbicea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="appbicea" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="appbicea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="appbicea" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="appbicea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="appbicea" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="appbicea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="appbicea" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Form" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="appbicea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="appbicea" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="appbicea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="appbicea" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="bu_customer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="appbicea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="appbicea" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="bu_supplier" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="appbicea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="appbicea" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="configuration" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="appbicea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="appbicea" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="rh_function" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
-  </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/bu_article" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -416,19 +187,19 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\toure\Desktop\bicea\appbicea\templates\bu_supplier" />
-      <recent name="C:\Users\toure\Desktop\bicea\appbicea\templates\rh_contract" />
-      <recent name="C:\Users\toure\Desktop\bicea\appbicea\templates\configuration" />
-      <recent name="C:\Users\toure\Desktop\bicea\appbicea\templates\home_user" />
-      <recent name="C:\Users\toure\Desktop\bicea\appbicea\src\Controller" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\toure\Desktop\bicea\appbicea\templates\bu_customer" />
       <recent name="C:\Users\toure\Desktop\bicea\appbicea\templates\project" />
       <recent name="C:\Users\toure\Desktop\bicea\appbicea\templates\rh_user" />
       <recent name="C:\Users\toure\Desktop\bicea\appbicea\src\Repository" />
       <recent name="C:\Users\toure\Desktop\bicea\appbicea\src\Form" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\toure\Desktop\bicea\appbicea\templates\bu_article" />
+      <recent name="C:\Users\toure\Desktop\bicea\appbicea\templates\bu_category" />
+      <recent name="C:\Users\toure\Desktop\bicea\appbicea\templates\bu_supplier" />
+      <recent name="C:\Users\toure\Desktop\bicea\appbicea\templates\rh_contract" />
+      <recent name="C:\Users\toure\Desktop\bicea\appbicea\templates\configuration" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -471,12 +242,10 @@
       <workItem from="1573386471800" duration="8706000" />
       <workItem from="1573400430644" duration="2175000" />
       <workItem from="1573406647141" duration="1191000" />
-      <workItem from="1573990099682" duration="28439000" />
+      <workItem from="1573990099682" duration="28903000" />
+      <workItem from="1574457721108" duration="4225000" />
     </task>
     <servers />
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105909000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -487,52 +256,6 @@
       <is-autoscroll-to-source value="true" />
     </todo-panel>
   </component>
-  <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21744967" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32152975" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="8" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.3286119" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49932885" weight="0.34560907" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50067115" side_tool="true" weight="0.34560907" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24966443" />
-      <window_info anchor="right" id="Database" order="3" />
-    </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21744967" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32152975" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="8" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.3286119" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49932885" weight="0.34560907" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50067115" side_tool="true" weight="0.34560907" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24966443" />
-      <window_info anchor="right" id="Database" order="3" />
-    </layout-to-restore>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
@@ -542,12 +265,7 @@
         <entry key="MAIN">
           <value>
             <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
+              <option name="COLUMN_ORDER" />
             </State>
           </value>
         </entry>
@@ -567,372 +285,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Entity/RhFunction.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/PrTask.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Project.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-10">
-          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-          <folding>
-            <element signature="e#30#78#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/pr_task/pr_task.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="37" column="60" selection-start-line="37" selection-start-column="60" selection-end-line="37" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/project/edit_project.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="12" column="20" selection-end-line="22" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/configuration/admin_left_education.html.twig" />
-    <entry file="file://$PROJECT_DIR$/templates/pr_task/edit_pr_task.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/project/project.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="49" selection-end-column="10" />
-          <folding>
-            <element signature="e#560#2042#0#HTML" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/project/project_view.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="87" selection-start-line="6" selection-start-column="87" selection-end-line="6" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/project/tasks_parameters.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-70">
-          <caret line="25" column="56" selection-start-line="25" selection-start-column="56" selection-end-line="25" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/BiceaReglageController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="26" column="7" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/configuration/user_left_business.html.twig" />
-    <entry file="file://$PROJECT_DIR$/templates/configuration/user_left_bicea.html.twig" />
-    <entry file="file://$PROJECT_DIR$/templates/configuration/user_header.html.twig" />
-    <entry file="file://$PROJECT_DIR$/templates/configuration/header.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="44" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/configuration/admin_left_business.html.twig" />
-    <entry file="file://$PROJECT_DIR$/templates/home_user/home_user_business.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/BiceaAdmin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="31" column="15" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/home_user/home_user_bicea.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/HomeAdminController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="968">
-          <caret line="49" column="14" selection-start-line="49" selection-start-column="14" selection-end-line="49" selection-end-column="14" />
-          <folding>
-            <element signature="e#35#61#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/HomeUserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="45" selection-start-line="45" selection-end-line="45" />
-          <folding>
-            <element signature="e#34#60#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/rh_user_management/rh_user_management.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/template.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="68" column="13" selection-start-line="68" selection-start-column="13" selection-end-line="68" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Service/Utils.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="37" column="22" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/BiceaAdminController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="776">
-          <caret line="115" column="4" selection-start-line="115" selection-start-column="4" selection-end-line="115" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ProjectController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="134" column="66" selection-start-line="134" selection-start-column="7" selection-end-line="134" selection-end-column="66" />
-          <folding>
-            <element signature="e#34#60#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/RhUserManagementController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/RhContract.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="58" selection-start-line="58" selection-end-line="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/RhUser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1606">
-          <caret line="2" column="21" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/PrTaskType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="40" column="18" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
-          <folding>
-            <element signature="e#28#54#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/PrTaskController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1141">
-          <caret line="96" column="13" selection-start-line="96" selection-start-column="13" selection-end-line="96" selection-end-column="13" />
-          <folding>
-            <element signature="e#34#56#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/RhContractType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
-          <folding>
-            <element signature="e#28#54#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/rh_contract/edit_rh_contract.html.twig">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/RhContractController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="101" column="55" selection-start-line="101" selection-start-column="55" selection-end-line="101" selection-end-column="55" />
-          <folding>
-            <element signature="e#34#60#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/rh_contract/rh_contract.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="17" column="43" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/rh_function/function.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="18" column="25" selection-end-line="54" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/RhUserType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="80" column="72" selection-start-line="80" selection-start-column="12" selection-end-line="80" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/rh_function/edit_function.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="19" selection-end-line="22" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/bu_customer/edit_bu_customer.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" column="77" selection-start-line="14" selection-start-column="77" selection-end-line="14" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/RhUserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="68" column="36" selection-start-line="68" selection-start-column="28" selection-end-line="68" selection-end-column="36" />
-          <folding>
-            <element signature="e#34#56#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/RhFunctionController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="569">
-          <caret line="107" column="5" selection-start-line="86" selection-start-column="3" selection-end-line="107" selection-end-column="5" />
-          <folding>
-            <element signature="e#34#60#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/LoginController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
-          <folding>
-            <element signature="e#34#60#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/BuCustomerType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="21" column="72" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/BuSupplierType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/bu_customer/bu_customer.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="37" column="39" selection-end-line="52" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/bu_supplier/edit_bu_supplier.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" column="82" selection-start-line="14" selection-start-column="82" selection-end-line="14" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/configuration/left.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="145" column="52" selection-start-line="145" selection-start-column="52" selection-end-line="145" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/bu_supplier/bu_supplier.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="38" column="64" selection-start-line="38" selection-start-column="64" selection-end-line="38" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/BuCustomerController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="109" column="5" selection-start-line="86" selection-start-column="3" selection-end-line="109" selection-end-column="5" />
-          <folding>
-            <element signature="e#34#60#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/BuSupplierController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="71" column="45" selection-start-line="71" selection-start-column="45" selection-end-line="71" selection-end-column="45" />
-          <folding>
-            <element signature="e#34#60#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
   </component>
 </project>

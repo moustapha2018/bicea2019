@@ -134,6 +134,16 @@ class BiceaAdmin
      */
     private $buSuppliers;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\BuCategory", mappedBy="BiceaAdmin")
+     */
+    private $buCategories;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\BuArticle", mappedBy="BiceaAdmin")
+     */
+    private $buArticles;
+
 
     public function __construct()
     {
@@ -144,6 +154,8 @@ class BiceaAdmin
         $this->rhContracts = new ArrayCollection();
         $this->buCustomers = new ArrayCollection();
         $this->buSuppliers = new ArrayCollection();
+        $this->buCategories = new ArrayCollection();
+        $this->buArticles = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -507,6 +519,68 @@ class BiceaAdmin
             // set the owning side to null (unless already changed)
             if ($buSupplier->getBiceaAdmin() === $this) {
                 $buSupplier->setBiceaAdmin(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|BuCategory[]
+     */
+    public function getBuCategories(): Collection
+    {
+        return $this->buCategories;
+    }
+
+    public function addBuCategory(BuCategory $buCategory): self
+    {
+        if (!$this->buCategories->contains($buCategory)) {
+            $this->buCategories[] = $buCategory;
+            $buCategory->setBiceaAdmin($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBuCategory(BuCategory $buCategory): self
+    {
+        if ($this->buCategories->contains($buCategory)) {
+            $this->buCategories->removeElement($buCategory);
+            // set the owning side to null (unless already changed)
+            if ($buCategory->getBiceaAdmin() === $this) {
+                $buCategory->setBiceaAdmin(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|BuArticle[]
+     */
+    public function getBuArticles(): Collection
+    {
+        return $this->buArticles;
+    }
+
+    public function addBuArticle(BuArticle $buArticle): self
+    {
+        if (!$this->buArticles->contains($buArticle)) {
+            $this->buArticles[] = $buArticle;
+            $buArticle->setBiceaAdmin($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBuArticle(BuArticle $buArticle): self
+    {
+        if ($this->buArticles->contains($buArticle)) {
+            $this->buArticles->removeElement($buArticle);
+            // set the owning side to null (unless already changed)
+            if ($buArticle->getBiceaAdmin() === $this) {
+                $buArticle->setBiceaAdmin(null);
             }
         }
 
