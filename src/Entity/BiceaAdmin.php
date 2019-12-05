@@ -144,6 +144,11 @@ class BiceaAdmin
      */
     private $buArticles;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\BuCustomerOrder", mappedBy="BiceaAdmin")
+     */
+    private $buCustomerOrders;
+
 
     public function __construct()
     {
@@ -156,6 +161,7 @@ class BiceaAdmin
         $this->buSuppliers = new ArrayCollection();
         $this->buCategories = new ArrayCollection();
         $this->buArticles = new ArrayCollection();
+        $this->buCustomerOrders = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -581,6 +587,37 @@ class BiceaAdmin
             // set the owning side to null (unless already changed)
             if ($buArticle->getBiceaAdmin() === $this) {
                 $buArticle->setBiceaAdmin(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|BuCustomerOrder[]
+     */
+    public function getBuCustomerOrders(): Collection
+    {
+        return $this->buCustomerOrders;
+    }
+
+    public function addBuCustomerOrder(BuCustomerOrder $buCustomerOrder): self
+    {
+        if (!$this->buCustomerOrders->contains($buCustomerOrder)) {
+            $this->buCustomerOrders[] = $buCustomerOrder;
+            $buCustomerOrder->setBiceaAdmin($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBuCustomerOrder(BuCustomerOrder $buCustomerOrder): self
+    {
+        if ($this->buCustomerOrders->contains($buCustomerOrder)) {
+            $this->buCustomerOrders->removeElement($buCustomerOrder);
+            // set the owning side to null (unless already changed)
+            if ($buCustomerOrder->getBiceaAdmin() === $this) {
+                $buCustomerOrder->setBiceaAdmin(null);
             }
         }
 

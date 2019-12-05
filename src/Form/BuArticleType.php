@@ -7,7 +7,10 @@ use App\Entity\BuCategory;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -22,6 +25,14 @@ class BuArticleType extends AbstractType
             //->add('createdAt')
             ->add('description')
             ->add('comment')
+            ->add('articleQuantity', TextType::class)
+            ->add('unit', ChoiceType::class,[
+                'choices'=>[
+                    'KG' => 'KG',
+                    'L' => 'L',
+                    'U' => 'U'
+                ]
+            ])
             //->add('BiceaAdmin')
             ->add('BuCategory', EntityType::class,[
                 'class' => BuCategory::class,
@@ -33,6 +44,9 @@ class BuArticleType extends AbstractType
                 },
                 'choice_label' => 'categoryName',
             ])
+            ->add('image', FileType::class, array(
+                'data_class' => null,
+                'label' => 'Image'))
             ->add('submit', SubmitType::class)
         ;
     }

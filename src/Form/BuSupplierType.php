@@ -15,6 +15,9 @@ class BuSupplierType extends AbstractType
         $builder
             ->add('firstName')
             ->add('lastName')
+            ->add('address')
+            ->add('email')
+            ->add('phone')
             //->add('createdAt')
             //->add('BiceaAdmin')
             ->add('submit', SubmitType::class, ['label'=>'Enregistrer'])

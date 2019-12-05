@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -50,6 +52,34 @@ class BuArticle
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $comment;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\BuCustomerOrder", mappedBy="BuArticle")
+     */
+    private $buCustomerOrders;
+
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $unit;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $articleQuantity;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $image;
+
+    
+
+    public function __construct()
+    {
+        $this->buCustomerOrders = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -139,4 +169,74 @@ class BuArticle
 
         return $this;
     }
+
+    /**
+     * @return Collection|BuCustomerOrder[]
+     */
+    public function getBuCustomerOrders(): Collection
+    {
+        return $this->buCustomerOrders;
+    }
+
+    public function addBuCustomerOrder(BuCustomerOrder $buCustomerOrder): self
+    {
+        if (!$this->buCustomerOrders->contains($buCustomerOrder)) {
+            $this->buCustomerOrders[] = $buCustomerOrder;
+            $buCustomerOrder->setBuArticle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBuCustomerOrder(BuCustomerOrder $buCustomerOrder): self
+    {
+        if ($this->buCustomerOrders->contains($buCustomerOrder)) {
+            $this->buCustomerOrders->removeElement($buCustomerOrder);
+            // set the owning side to null (unless already changed)
+            if ($buCustomerOrder->getBuArticle() === $this) {
+                $buCustomerOrder->setBuArticle(null);
+            }
+        }
+
+        return $this;
+    }
+
+    
+    public function getUnit(): ?string
+    {
+        return $this->unit;
+    }
+
+    public function setUnit(string $unit): self
+    {
+        $this->unit = $unit;
+
+        return $this;
+    }
+
+    public function getArticleQuantity(): ?int
+    {
+        return $this->articleQuantity;
+    }
+
+    public function setArticleQuantity(int $articleQuantity): self
+    {
+        $this->articleQuantity = $articleQuantity;
+
+        return $this;
+    }
+
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+
 }

@@ -5,6 +5,8 @@ namespace App\Repository;
 use App\Entity\BuArticle;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\ORM\Query;
+use Doctrine\ORM\QueryBuilder;
 
 /**
  * @method BuArticle|null find($id, $lockMode = null, $lockVersion = null)
@@ -47,4 +49,42 @@ class BuArticleRepository extends ServiceEntityRepository
         ;
     }
     */
+    /**
+     * @return Query
+     */
+    public function findAllByNameAscQuery(): Query
+    {
+
+        return $this->findByNameAscQuery()
+            ->getQuery();
+
+
+    }
+
+    /**
+     * @param $array
+     * @return BuArticle[]
+     */
+    public function findArray($array): array
+    {
+
+        return $this->findByNameAscQuery()
+            ->andWhere('a.id IN (:array)')
+            ->setParameter('array', $array)
+            ->getQuery()
+            ->getResult();
+
+    }
+
+    /**
+     * @return QueryBuilder
+     */
+    private function findByNameAscQuery(): QueryBuilder
+    {
+        return $this->createQueryBuilder('a')
+            ->orderBy('a.articleName', 'ASC');
+
+
+
+    }
 }

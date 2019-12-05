@@ -8,6 +8,7 @@ use App\Form\BuArticleType;
 use App\Repository\BiceaAdminRepository;
 use App\Repository\BuArticleRepository;
 use App\Service\Utils;
+use Symfony\Component\Filesystem\Filesystem;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -32,16 +33,33 @@ class BuArticleController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $article->setBiceaAdmin($admin);
-            $article->setCreatedAt(new \DateTime('now'));
+            $filesystem = new Filesystem();
 
-            $manager->persist($article);
-            $manager->flush();
-            $this->addFlash(
-                'success',
-                'Article est nregistré avec succes!'
-            );
-            return $this->redirectToRoute('bu_articles');
+            $fileImage = $article->getImage();
+            $fileNameImage = md5(uniqid()).'.'.$fileImage->guessExtension();
+            $fileImage->move($this->getParameter('upload_directory_images_articles'), $fileNameImage);
+            $article->setImage($fileNameImage);
+            $new_directory = $utils->searchReplace($admin->getLoginCompany().'-'.$article->getArticleName(), $this->getParameter( 'upload_directory_images_articles'));
+
+            if($filesystem->exists($new_directory)){
+                $filesystem->remove([$this->getParameter( 'upload_directory_images_articles')]);
+                $this->addFlash("error", "Cet article a dejà une image");
+                return $this->redirectToRoute('bu_articles');
+
+            }else {
+
+                $filesystem->rename($this->getParameter('upload_directory_images_articles'), $new_directory);
+                $article->setBiceaAdmin($admin);
+                $article->setCreatedAt(new \DateTime('now'));
+
+                $manager->persist($article);
+                $manager->flush();
+                $this->addFlash(
+                    'success',
+                    'Article est enregistré avec succes!'
+                );
+                return $this->redirectToRoute('bu_articles');
+            }
         }
 
 

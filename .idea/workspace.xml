@@ -2,12 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab4cc2a0-4ee8-42e2-9659-af5e0c9d26c5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/bu_article/bu_article.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/bu_article/edit_bu_article.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/bu_category/bu_category.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/bu_category/edit_bu_category.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/bu_customer_order/bu_customer_order.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/bu_customer_order/show.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/bu_panier/boutonPanier/boutonPanier.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/bu_panier/panier.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/template_business.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/BuArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BuArticleController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/BiceaAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/BiceaAdmin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/BuArticle.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/BuArticle.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/BuCustomer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/BuCustomer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/BuSupplier.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/BuSupplier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/BuArticleType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/BuArticleType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/BuCustomerType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/BuCustomerType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/BuSupplierType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/BuSupplierType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/BuArticleRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/BuArticleRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/configuration/left.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/configuration/left.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,49 +28,136 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution>
-      <executable />
-    </execution>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/BuCustomerOrderController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="32" selection-start-line="32" selection-end-line="32" />
+              <folding>
+                <element signature="e#35#60#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/BuPanierController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="548">
+              <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+              <folding>
+                <element signature="e#34#73#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Repository/BuCustomerOrderRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-544" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Repository/BuArticleRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="944">
+              <caret line="83" column="43" selection-start-line="83" selection-start-column="43" selection-end-line="83" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/template_business.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/bu_panier/panier.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="484">
+              <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/bu_customer_order/show.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="20" column="80" selection-start-line="20" selection-start-column="65" selection-end-line="20" selection-end-column="80" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/bu_customer_order/bu_customer_order.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="460">
+              <caret line="22" column="134" selection-start-line="22" selection-start-column="134" selection-end-line="22" selection-end-column="134" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/bu_panier/boutonPanier/boutonPanier.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="137" selection-start-column="137" selection-end-column="137" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/template.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="880">
+              <caret line="42" selection-start-line="41" selection-start-column="7" selection-end-line="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>App\Entity\humanResources\Admin</find>
-      <find>fonction</find>
-      <find>Rh</find>
-      <find>createdBy</find>
-      <find>admin</find>
-      <find>regl</find>
-      <find>created</find>
-      <find>compta</find>
-      <find>loginAdmin</find>
-      <find>loginUser</find>
-      <find>home</find>
-      <find>mon</find>
-      <find>Mon pro</find>
-      <find>sector</find>
-      <find>pro</find>
-      <find>project</find>
-      <find>biceaamin</find>
-      <find>projet</find>
-      <find>viewP</find>
-      <find>BiceaAmin</find>
-      <find>iShu</find>
-      <find>compan</find>
-      <find>gestions</find>
-      <find>gestion</find>
-      <find>isProje</find>
-      <find>session</find>
-      <find>$adminC</find>
-      <find>func</find>
-      <find>customer</find>
-      <find>cust</find>
+      <find>Stu</find>
+      <find>Student</find>
+      <find>getCon</find>
     </findStrings>
-    <replaceStrings>
-      <replace>Function</replace>
-    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/Form/BuCustomerOrderType.php" />
+        <option value="$PROJECT_DIR$/src/Form/BuArticleType.php" />
+        <option value="$PROJECT_DIR$/src/Controller/BuCustomerController.php" />
+        <option value="$PROJECT_DIR$/src/Entity/BuArticle.php" />
+        <option value="$PROJECT_DIR$/config/services.yaml" />
+        <option value="$PROJECT_DIR$/src/Controller/BuArticleController.php" />
+        <option value="$PROJECT_DIR$/templates/configuration/left.html.twig" />
+        <option value="$PROJECT_DIR$/templates/bu_customer_order/template_business.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/BuCustomerOrderController.php" />
+        <option value="$PROJECT_DIR$/templates/template_business.html.twig" />
+        <option value="$PROJECT_DIR$/src/Repository/BuArticleRepository.php" />
+        <option value="$PROJECT_DIR$/templates/bu_panier/boutonPanier/boutonPanier.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/BuPanierController.php" />
+        <option value="$PROJECT_DIR$/templates/bu_customer_order/show.html.twig" />
+        <option value="$PROJECT_DIR$/templates/bu_customer_order/bu_customer_order.html.twig" />
+        <option value="$PROJECT_DIR$/templates/bu_panier/panier.html.twig" />
+      </list>
+    </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -172,10 +269,80 @@
       <path value="$PROJECT_DIR$/vendor/twig/extensions" />
     </include_path>
   </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="10" />
+    <option name="y" value="20" />
+    <option name="width" value="1348" />
+    <option name="height" value="690" />
+  </component>
   <component name="ProjectId" id="1TQltHUdKKn7eR6xYRnl4ZeVX1n" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="appbicea" type="b2602c69:ProjectViewProjectNode" />
+              <item name="appbicea" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="appbicea" type="b2602c69:ProjectViewProjectNode" />
+              <item name="appbicea" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="appbicea" type="b2602c69:ProjectViewProjectNode" />
+              <item name="appbicea" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="appbicea" type="b2602c69:ProjectViewProjectNode" />
+              <item name="appbicea" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="uploads" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="appbicea" type="b2602c69:ProjectViewProjectNode" />
+              <item name="appbicea" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="uploads" type="462c0819:PsiDirectoryNode" />
+              <item name="images_articles" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="appbicea" type="b2602c69:ProjectViewProjectNode" />
+              <item name="appbicea" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="appbicea" type="b2602c69:ProjectViewProjectNode" />
+              <item name="appbicea" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Repository" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="appbicea" type="b2602c69:ProjectViewProjectNode" />
+              <item name="appbicea" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="appbicea" type="b2602c69:ProjectViewProjectNode" />
+              <item name="appbicea" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="bu_customer_order" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/bu_article" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -187,19 +354,19 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\toure\Desktop\bicea\appbicea\templates\bu_customer" />
-      <recent name="C:\Users\toure\Desktop\bicea\appbicea\templates\project" />
-      <recent name="C:\Users\toure\Desktop\bicea\appbicea\templates\rh_user" />
-      <recent name="C:\Users\toure\Desktop\bicea\appbicea\src\Repository" />
-      <recent name="C:\Users\toure\Desktop\bicea\appbicea\src\Form" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\toure\Desktop\bicea\appbicea\templates\bu_customer_order" />
       <recent name="C:\Users\toure\Desktop\bicea\appbicea\templates\bu_article" />
       <recent name="C:\Users\toure\Desktop\bicea\appbicea\templates\bu_category" />
       <recent name="C:\Users\toure\Desktop\bicea\appbicea\templates\bu_supplier" />
       <recent name="C:\Users\toure\Desktop\bicea\appbicea\templates\rh_contract" />
-      <recent name="C:\Users\toure\Desktop\bicea\appbicea\templates\configuration" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\toure\Desktop\bicea\appbicea\templates\bu_panier" />
+      <recent name="C:\Users\toure\Desktop\bicea\appbicea\templates" />
+      <recent name="C:\Users\toure\Desktop\bicea\appbicea\templates\bu_customer" />
+      <recent name="C:\Users\toure\Desktop\bicea\appbicea\templates\project" />
+      <recent name="C:\Users\toure\Desktop\bicea\appbicea\templates\rh_user" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -243,9 +410,21 @@
       <workItem from="1573400430644" duration="2175000" />
       <workItem from="1573406647141" duration="1191000" />
       <workItem from="1573990099682" duration="28903000" />
-      <workItem from="1574457721108" duration="4225000" />
+      <workItem from="1574457721108" duration="31561000" />
+      <workItem from="1574688593314" duration="143000" />
+      <workItem from="1574693460534" duration="3733000" />
+      <workItem from="1574724286571" duration="1216000" />
+      <workItem from="1574725872485" duration="806000" />
+      <workItem from="1574756889192" duration="2249000" />
+      <workItem from="1574759219328" duration="8010000" />
+      <workItem from="1574842984173" duration="922000" />
+      <workItem from="1575447119731" duration="13245000" />
+      <workItem from="1575533459292" duration="11072000" />
     </task>
     <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="25239000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -256,6 +435,30 @@
       <is-autoscroll-to-source value="true" />
     </todo-panel>
   </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25637585" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3286119" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+    </layout>
+  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
@@ -265,6 +468,12 @@
         <entry key="MAIN">
           <value>
             <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
               <option name="COLUMN_ORDER" />
             </State>
           </value>
@@ -285,5 +494,314 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/Controller/HomeAdminController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="e#35#61#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/HomeUserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ProjectController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/PrTaskController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/RhContractController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/RhFunctionController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/RhUserManagementController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/BiceaAdmin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/BuCategory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/BuCustomer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/BuSupplier.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Project.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/PrTask.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/RhContract.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/RhFunction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/RhUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/BiceaAdminType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/BuCategoryType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/BuSupplierType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/ProjectType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/PrTaskType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/RhContractType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/RhFunctionType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/BuCustomerType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/LoginController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1738" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/bu_customer/bu_customer.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="39" column="24" selection-start-line="38" selection-start-column="28" selection-end-line="39" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/BuSupplierController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="46" column="98" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/BuCustomerController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="31" column="54" lean-forward="true" selection-start-line="31" selection-start-column="54" selection-end-line="31" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/uploads/images_articles/2-/76702bb4c43110603f6dd91d4af780f5.jpeg" />
+    <entry file="file://$PROJECT_DIR$/src/Form/BuArticleType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="36" column="18" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/RhUserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="11" selection-start-line="11" selection-end-line="11" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/BuCustomerOrderType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="880">
+          <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Service/Utils.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/BuArticle.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4972">
+          <caret line="228" column="30" selection-start-line="228" selection-start-column="30" selection-end-line="228" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/services.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="59" selection-start-line="6" selection-start-column="59" selection-end-line="6" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/rh_user/view_user.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="13" column="101" selection-start-line="13" selection-start-column="44" selection-end-line="13" selection-end-column="101" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/RhUserType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="858">
+          <caret line="53" column="47" selection-start-line="53" selection-start-column="47" selection-end-line="56" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/configuration/left.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="164" column="93" selection-start-line="164" selection-start-column="93" selection-end-line="164" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/BuArticleController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-858">
+          <caret line="19" column="46" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="46" />
+          <folding>
+            <element signature="e#35#60#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/BuCustomerOrder.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/template.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="880">
+          <caret line="42" selection-start-line="41" selection-start-column="7" selection-end-line="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/BuArticleRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="944">
+          <caret line="83" column="43" selection-start-line="83" selection-start-column="43" selection-end-line="83" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/BuCustomerOrderController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+          <folding>
+            <element signature="e#35#60#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/bu_panier/boutonPanier/boutonPanier.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="137" selection-start-column="137" selection-end-column="137" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/BuCustomerOrderRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-544" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/BuPanierController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="548">
+          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+          <folding>
+            <element signature="e#34#73#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/template_business.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/bu_customer_order/show.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="20" column="80" selection-start-line="20" selection-start-column="65" selection-end-line="20" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/bu_customer_order/bu_customer_order.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="22" column="134" selection-start-line="22" selection-start-column="134" selection-end-line="22" selection-end-column="134" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/bu_panier/panier.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>

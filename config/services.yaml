@@ -5,8 +5,9 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     upload_directory: '%kernel.project_dir%/public/uploads/dossierutilisateur'
-    upload_directory_photo: '%kernel.project_dir%/public/uploads/photos'
-    upload_directory_passport: '%kernel.project_dir%/public/uploads/passports'
+    #upload_directory_photo: '%kernel.project_dir%/public/uploads/photos'
+    #upload_directory_passport: '%kernel.project_dir%/public/uploads/passports'
+    upload_directory_images_articles: '%kernel.project_dir%/public/uploads/images_articles/dossierutilisateur'
 
 
 services:
