@@ -134,4 +134,20 @@ class BiceaAdminController extends AbstractController
         }
 
     }
+
+    /**
+     * @Route("/all_admins", name ="all_admins")
+     */
+
+    public function allAdmin(Request $request, BiceaAdminRepository $biceaAdminRepository)
+    {
+        $session = $request->getSession();
+        $session->set('panier', array());
+        $session->set('companyId', null);
+
+        return $this->render('bicea_admin/all_admin.html.twig', [
+            'admins' =>$biceaAdminRepository->findAll(),
+        ]);
+
+    }
 }

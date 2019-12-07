@@ -25,9 +25,14 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link {% if Current_menu is defined and Current_menu == 'article_menu' %}active{% endif %}" href="{{ path('bu_customer_orders') }}">Catalogue</a>
+                <a class="nav-link active" href="{{ path('all_admins') }}">Bicea - company</a>
             </li>
-
+            {% set companyId = app.session.get('companyId') %}
+            {% if companyId is defined and companyId is not null %}
+            <li class="nav-item">
+                <a href="{{ path('bu_customer_orders',{'id': companyId}) }}" class="nav-link active" target="_blank" >Catalogue des Articles!</a>
+            </li>
+            {% endif %}
         </ul>
        {{ render(controller('App\\Controller\\BuPanierController::nbArticle')) }}
     </div>

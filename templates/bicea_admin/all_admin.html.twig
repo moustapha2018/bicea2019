@@ -1,0 +1,56 @@
+{% extends 'template_business.html.twig' %}
+
+{% block title %}Entreprises {% endblock %}
+
+{% block body %}
+
+    <div class="container" >
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="alert alert-{{ label }} mt-10">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+    </div>
+
+
+    <div class="container">
+        <form  action="#" method="POST">
+            <div class="form-group" >
+                <label for="keyword">Entrez le nom d'une entreprise</label>
+                <input type="text" class="form-control" id="keyword" placeholder="total" name="keyword">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">Rechercher</button>
+            </div>
+
+        </form>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            {% for admin in admins %}
+                <div class="col-md-4">
+                    <div class="card bg-light mb-3">
+                        <div class="card-header text-center">
+                           {{ admin.companyName }} </strong> <br>
+
+                        </div>
+                        <img src="https://seekcomau.corewebdna.net.au/web_images/blogs/214/1564/What%20can%20a%20company%20offer%20me_940x485.jpg" alt="image" style="height: 200px; width: 100%; display: block;">
+                        <div class="card-body">
+                            <h4 card-title>
+                                Description
+                            </h4>
+                            <p class="card-text">
+                                {{admin.descriptionCompany|truncate(100, false, '...') }}<a href="{{ path('bu_customer_orders',{'id': admin.id}) }}" target="_blank"> En savoir plus!</a>
+                            </p>
+                            <a href="{{ path('bu_customer_orders',{'id': admin.id}) }}" target="_blank" class="btn btn-secondary">Visiter!</a>
+
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

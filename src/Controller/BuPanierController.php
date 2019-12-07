@@ -61,23 +61,20 @@ class BuPanierController extends AbstractController
         $panier = $session->get('panier');
 
         if (array_key_exists($id, $panier)) {
-
             if ($request->query->get('qte') != null)
-
                 $panier[$id] = $request->query->get('qte');
         } else {
             if ($request->query->get('qte') != null)
                 $panier[$id] = $request->query->get('qte');
             else
                 $panier[$id] = 1;
-            $this->addFlash('success', 'Article ajouté avec succès !');
-
+            //$this->addFlash('success', 'Article ajouté avec succès !');
         }
 
         $session->set('panier', $panier);
 
 
-        return $this->redirect($this->generateUrl('panier'));
+        return $this->redirect($this->generateUrl('bu_customer_orders', ['id'=> $session->get('companyId')]));
     }
     /**
      * @Route("/delete/panier/article/{id}", name="deleteArticle.panier")

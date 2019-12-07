@@ -149,6 +149,11 @@ class BiceaAdmin
      */
     private $buCustomerOrders;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $descriptionCompany;
+
 
     public function __construct()
     {
@@ -620,6 +625,18 @@ class BiceaAdmin
                 $buCustomerOrder->setBiceaAdmin(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDescriptionCompany(): ?string
+    {
+        return $this->descriptionCompany;
+    }
+
+    public function setDescriptionCompany(?string $descriptionCompany): self
+    {
+        $this->descriptionCompany = $descriptionCompany;
 
         return $this;
     }

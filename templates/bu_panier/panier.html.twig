@@ -5,7 +5,7 @@
 {% block body %}
     <div class="container mt-3">
 
-        <h2>Mon panier</h2>
+        <a>Mon panier</a>
         <div class="col-md-10">
             {% for type, flash_messages in app.session.flashBag.all %}
                 {% for msg in flash_messages %}
@@ -19,10 +19,12 @@
             <tr>
                 <th>Références</th>
                 <th>Nom</th>
-                <th></th>
+                <th>Image</th>
                 <th>Quantité</th>
                 <th>PrixUT</th>
                 <th>Total</th>
+                <th>action</th>
+
             </tr>
             </thead>
             <tbody>
@@ -33,23 +35,23 @@
             {% endif %}
             {% set somme = 0 %}
             {% for article in articles  %}
-            <form  action="{{ path('add.panier',{"id": article.id}) }}"  method="get">
+           <!-- <form  action="{# path('add.panier',{"id": article.id}) }}#}"  method="get">-->
                 <tr>
                     <td>{{ article.id }}</td>
                     <td>{{ article.articleName }}</td>
                     <td>
                         <img  class="image-style-thumb" src="{{ asset('uploads/images_articles/'~article.BiceaAdmin.id~'-'~ article.articleName~'/'~ article.image) }}" height="40" alt="{{ article.articleName }}" />
                     </td>
-                    <td class="form-inline">
-                        {{ panier[article.id] }}&nbsp;
-                         <input class="form-control" type="number" style="width: 30%" max="99" min="1" name="qte" onchange="this.form.submit()"/>
-                        &nbsp;<a href="{{ path('deleteArticle.panier',{"id": article.id}) }}"><i  class="fa fa-trash"></i></a>
-                    </td>
+                    <td>{{ panier[article.id] }}&nbsp;</td>
                     <td>{{ article.unitPrice }} €/{{ article.articleQuantity }} {{ article.unit }}</td>
                     <td>{{ (article.unitPrice * panier[article.id])|number_format(0, '', '.') }} FG</td>
+                    <td class="form-inline">
+                        <!-- <input class="form-control" type="number" style="width: 30%" max="99" min="1" name="qte" onchange="this.form.submit()"/> -->
+                        &nbsp;<a href="{{ path('deleteArticle.panier',{"id": article.id}) }}"><i  class="fa fa-trash"></i></a>
+                    </td>
                 </tr>
             {% set somme = somme + article.unitPrice * panier[article.id] %}
-            </form>
+           <!-- </form>-->
             {% endfor %}
             </tbody>
             <tfoot>
@@ -62,6 +64,7 @@
         </table>
             <p class="card-text">
                 <a class="btn btn-primary" role="button"  href="{{ path('delete.panier') }}">Vider le panier</a>
+                <a class="btn btn-primary" role="button"  href="{{ path('delete.panier') }}">Commander</a>
             </p>
     </div>
         <div class="col-md-4"></div>

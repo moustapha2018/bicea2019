@@ -162,7 +162,13 @@
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="{{ path('bu_customer_orders') }}" target="_blank"><i class="fa fa-circle-o"></i>Vendre </a></li>
+                                {% if administrator is not null %}
+                                    {% set url = administrator.id %}
+                                {% endif %}
+                                {% if user is not null %}
+                                    {% set url = user.BiceaAdmin.id %}
+                                {% endif %}
+                                <li><a href="{{ path('bu_customer_orders',{'id': url}) }}" target="_blank"><i class="fa fa-circle-o"></i>Vendre </a></li>
                                 <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Acheter </a></li>
                             </ul>
                         </li>

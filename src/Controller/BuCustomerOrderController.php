@@ -4,10 +4,10 @@ namespace App\Controller;
 
 
 use App\Entity\BuArticle;
-use App\Repository\BiceaAdminRepository;
 use App\Repository\BuArticleRepository;
-use App\Repository\BuCustomerOrderRepository;
-use App\Service\Utils;
+use App\Repository\BuCategoryRepository;
+
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,17 +16,26 @@ use Symfony\Component\Routing\Annotation\Route;
 class BuCustomerOrderController extends AbstractController
 {
     /**
-     * @Route("/bu/customer/order", name="bu_customer_orders")
+     * @Route("/bu/customer/order/{id}", name="bu_customer_orders")
      */
-    public function customerOrder(Request $request, BiceaAdminRepository $adminRepository, Utils $utils,
-                                  BuArticleRepository $buArticleRepository)
+    public function customerOrder($id, Request $request, BuArticleRepository $buArticleRepository,
+                                  BuCategoryRepository $buCategoryRepository, PaginatorInterface $paginator)
     {
-        $admin = $utils->getAdmin($request,$adminRepository);
-        $articles =$buArticleRepository->findBy( array('BiceaAdmin' => $admin->getId()));
+        $articles = $paginator->paginate(
+            //$this->repository->findAllByNameAscQuery(),
+            $buArticleRepository->findBy( array('BiceaAdmin' => $id)),
+            $request->query->getInt('page', 1),
+            4
+        );
+        $session = $request->getSession();
+        $session->set('companyId', $id);
+        //$articles = $buArticleRepository->findBy( array('BiceaAdmin' => $id));
+        $categories = $buCategoryRepository->findBy(array('BiceaAdmin' => $id));
 
         return $this->render('bu_customer_order/bu_customer_order.html.twig', [
             'articles' => $articles,
-            'Current_menu' => 'article_menu'
+            'categories' => $categories
+
         ]);
 
     }
@@ -46,9 +55,6 @@ class BuCustomerOrderController extends AbstractController
         ]);
 
     }
-
-
-
 
 
 }
